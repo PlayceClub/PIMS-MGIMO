@@ -1,41 +1,47 @@
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
+from telegram import BotCommand
+from telegram.ext import ApplicationBuilder, CommandHandler
 
-# Токен бота и ID администратора
+# Токен вашего бота
 BOT_TOKEN = "7706626510:AAGpC7AoYq_ZZ9Nxo6PunGqq5YbJUuCcNfc"
-ADMIN_ID = 1776219693  # Замените на ваш Telegram ID
 
-# Команда /start
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_text(
-        "Привет! Я бот для обратной связи. Напиши мне сообщение, и я передам его администратору."
-    )
-
-# Обработка сообщений от пользователей
-async def forward_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    user = update.effective_user
-    message = update.message.text
-
-    # Переслать сообщение администратору
-    await context.bot.send_message(
-        chat_id=1776219693,
-        text=f"Сообщение от @{user.username or user.first_name}:\n\n{message}"
-    )
-
-    # Подтвердить отправку пользователю
-    await update.message.reply_text("Спасибо за ваше сообщение! Мы скоро с вами свяжемся.")
 
 # Основная функция
 def main():
-    # Создаем приложение
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    # Обработчики команд и сообщений
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, forward_message))
+    # Установка меню команд
+    app.bot.set_my_commands([
+        BotCommand("start", "Начать работу с ботом"),
+        BotCommand("catalog", "Каталог товаров"),
+        BotCommand("cart", "Показать корзину"),
+        BotCommand("feedback", "Обратная связь"),
+        BotCommand("help", "Показать справку"),
+    ])
 
-    # Запуск бота
+    # Обработчики команд
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("help", help_command))
+    app.add_handler(CommandHandler("catalog", catalog))
+    app.add_handler(CommandHandler("cart", cart))
+    app.add_handler(CommandHandler("feedback", feedback))
+
     app.run_polling()
+
+# Команды бота
+async def start(update, context):
+    await update.message.reply_text("Привет! Выберите команду из меню или введите её вручную.")
+
+async def help_command(update, context):
+    await update.message.reply_text("Список команд:\n/start - Начать\n/catalog - Каталог\n/cart - Корзина\n/feedback - Обратная связь\n/help - Помощь")
+
+async def catalog(update, context):
+    await update.message.reply_text("Здесь будет каталог.")
+
+async def cart(update, context):
+    await update.message.reply_text("Ваша корзина пуста.")
+
+async def feedback(update, context):
+    await update.message.reply_text("Напишите сообщение для связи с администратором.")
 
 if __name__ == "__main__":
     main()
