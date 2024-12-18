@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIMSMGIMO</title>
-    <link rel="stylesheet" href="style/style.css">
-
-</head>
-<body>
- <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фруктовые напитки</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 <body>
-    <header>🍹 Фруктовые напитки</header>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <h1>🍹 Фруктовые напитки</h1>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Меню</a></li>
+            <li><a href="#">Корзина</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </div>
+
     <div class="container">
         <div class="drink-card">
             <img src="https://via.placeholder.com/600x200?text=Манго+Смузи" alt="Манго Смузи">
@@ -42,7 +45,11 @@
         </div>
     </div>
 
-     <script src="script/script.js"></script>
-     <script src="script/Telegram.js"></script>
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
 </body>
 </html>
