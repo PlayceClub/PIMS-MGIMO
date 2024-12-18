@@ -1,115 +1,141 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #ffffff;
+    color: #333;
+}
 
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: #ffffff;
-            color: #333;
-        }
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffffc7;
+    color: rgb(255, 102, 0);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: orange;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
+header h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    width: 70%;
+    height: auto;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 20px;
-            font-weight: bold;
-        }
+header .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
 
-        header .menu-icon {
-            font-size: 24px;
-            cursor: pointer;
-        }
+.sidebar {
+    position: fixed;
+    top: -100%;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: top 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100%;
-            background: #fff;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-            z-index: 999;
-            transition: left 0.3s ease-in-out;
-        }
+.sidebar.open {
+    top: 0;
+}
 
-        .sidebar.open {
-            left: 0;
-        }
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.sidebar ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 102, 0, 0.233);
+    width: 100%;
+}
 
-        .sidebar ul li {
-            padding: 15px 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 36px;
+}
 
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 16px;
-        }
+.container {
+    margin: 80px auto 20px auto;
+    max-width: 600px;
+}
 
-        .container {
-            margin: 80px auto 20px auto;
-            max-width: 600px;
-        }
+.drink-card {
+    background: #fffaf0;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
 
-        .drink-card {
-            background: #fffaf0;
-            margin: 15px;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
+.drink-card:hover {
+    transform: scale(1.05);
+}
 
-        .drink-card:hover {
-            transform: scale(1.05);
-        }
+.drink-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
 
-        .drink-card img {
-            width: 100%;
-            border-radius: 10px 10px 0 0;
-        }
+.drink-card h2 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #ff7f50;
+}
 
-        .drink-card h2 {
-            margin: 10px 0;
-            font-size: 20px;
-            color: #ff7f50;
-        }
+.drink-card p {
+    font-size: 16px;
+    color: #555;
+}
 
-        .drink-card p {
-            font-size: 16px;
-            color: #555;
-        }
+button {
+    background-color: #ff7f50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-        button {
-            background-color: #ff7f50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+button:hover {
+    background-color: #ff5722;
+}
 
-        button:hover {
-            background-color: #ff5722;
-        }
 
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff7f50;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff5722;
+}
