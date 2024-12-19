@@ -8,57 +8,23 @@
 </head>
 <body>
     <header>
-        <div class="menu-icon" onclick="goBack()">←</div>
-        <h1>🛒 Ваша корзина</h1>
+        <h1>Корзина</h1>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="theme-toggle" onclick="toggleTheme()">
+            <span id="toggle-circle"></span>
+        </div>
     </header>
-
+    <nav id="sidebar" class="sidebar">
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="menu.html">Меню</a></li>
+            <li><a href="cart.html">Корзина</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
     <div class="cart-container" id="cart-container">
-        <!-- Здесь будут динамически добавляться товары -->
+        <!-- Товары будут добавлены через JavaScript -->
     </div>
-
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-
-        function loadCart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || {};
-            const cartContainer = document.getElementById('cart-container');
-
-            // Если корзина пуста
-            if (Object.keys(cart).length === 0) {
-                cartContainer.innerHTML = '<p>Корзина пуста.</p>';
-                return;
-            }
-
-            // Инициализация корзины
-            let total = 0;
-            Object.keys(cart).forEach((name) => {
-                const item = cart[name];
-                if (item.count > 0) {
-                    total += item.count * item.price;
-
-                    const cartItem = document.createElement('div');
-                    cartItem.classList.add('cart-item');
-                    cartItem.innerHTML = `
-                        <img src="https://via.placeholder.com/150" alt="${name}">
-                        <h2>${name}</h2>
-                        <p>Количество: ${item.count}</p>
-                        <p>Сумма: ${item.count * item.price} ₽</p>
-                    `;
-                    cartContainer.appendChild(cartItem);
-                }
-            });
-
-            // Итоговая сумма
-            const totalElement = document.createElement('div');
-            totalElement.classList.add('cart-total');
-            totalElement.innerHTML = `<h2>Итого: ${total} ₽</h2>`;
-            cartContainer.appendChild(totalElement);
-        }
-
-        // Загружаем корзину при загрузке страницы
-        window.onload = loadCart;
-    </script>
+<script src="script/script.js"></script>
 </body>
 </html>
