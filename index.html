@@ -3,82 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Фруктовые напитки</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
+    <title>Меню напитков</title>
+    <link href="style/style.css" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <h1>PIMS&MGIMO</h1>
+        <h1>🍹 Меню напитков</h1>
     </header>
-
     <div class="sidebar" id="sidebar">
         <ul>
-            <li><a href="#">меню</a></li>
-            <li><a href="#">Корзина</a></li>
-            <li><a href="#">Статус заказа</a></li>
-            <li><a href="#">Обратная связь</a></li>
-           
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Меню</a></li>
+            <li><a href="cart.html">Корзина</a></li>
+            <li><a href="#">Контакты</a></li>
         </ul>
     </div>
-  
-    <div class="menu-container">
-       
+    <div class="menu-container" id="menu-container">
         <div class="menu-item">
-            <img src="img/sprite_p.png" alt="Кофе">
+            <img src="img/corona_p.png" alt="Кофе">
             <h2>Кофе</h2>
-            <p>Освежающий кофе из свежих зерен.</p>
-            <button>Добавить</button>
+            <p>Цена: 150 ₽</p>
+            <div class="counter">
+                <button onclick="decrement('Кофе', 150)">-</button>
+                <span id="count-Кофе">0</span>
+                <button onclick="increment('Кофе', 150)">+</button>
+            </div>
+            <p>Сумма: <span id="sum-Кофе">0</span> ₽</p>
+            <button onclick="addToCart('Кофе')">Добавить в корзину</button>
         </div>
         <div class="menu-item">
-            <img src="img/corona_p.png" alt="Чай">
+            <img src="img/sprite_p.png" alt="Чай">
             <h2>Чай</h2>
-            <p>Чай с натуральными ингредиентами.</p>
-            <button>Добавить</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/fanta_p.png" alt="Смузи">
-            <h2>Смузи</h2>
-            <p>Фруктовый смузи с натуральным вкусом.</p>
-            <button>Добавить</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/baikal_reserve_большой_p.png" alt="Апельсиновый сок">
-            <h2>Апельсиновый сок</h2>
-            <p>Свежевыжатый апельсиновый сок.</p>
-            <button>Добавить</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/sprite_p.png" alt="Кофе">
-            <h2>Кофе</h2>
-            <p>Освежающий кофе из свежих зерен.</p>
-            <button>Добавить</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/corona_p.png" alt="Чай">
-            <h2>Чай</h2>
-            <p>Чай с натуральными ингредиентами.</p>
-            <button>Добавить</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/fanta_p.png" alt="Смузи">
-            <h2>Смузи</h2>
-            <p>Фруктовый смузи с натуральным вкусом.</p>
-            <button>Добавить</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/baikal_reserve_большой_p.png" alt="Апельсиновый сок">
-            <h2>Апельсиновый сок</h2>
-            <p>Свежевыжатый апельсиновый сок.</p>
-            <button>Добавить</button>
+            <p>Цена: 100 ₽</p>
+            <div class="counter">
+                <button onclick="decrement('Чай', 100)">-</button>
+                <span id="count-Чай">0</span>
+                <button onclick="increment('Чай', 100)">+</button>
+            </div>
+            <p>Сумма: <span id="sum-Чай">0</span> ₽</p>
+            <button onclick="addToCart('Чай')">Добавить в корзину</button>
         </div>
     </div>
 
     <script>
+        const cart = JSON.parse(localStorage.getItem('cart.html')) || {};
+
+        function increment(name, price) {
+            if (!cart[name]) {
+                cart[name] = { price, count: 0 };
+            }
+            cart[name].count++;
+            updateUI(name);
+        }
+
+        function decrement(name, price) {
+            if (cart[name] && cart[name].count > 0) {
+                cart[name].count--;
+                updateUI(name);
+            }
+        }
+
+        function updateUI(name) {
+            document.getElementById(`count-${name}`).textContent = cart[name]?.count || 0;
+            document.getElementById(`sum-${name}`).textContent = cart[name]?.count * cart[name]?.price || 0;
+        }
+
+        function addToCart(name) {
+            if (cart[name] && cart[name].count > 0) {
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${name} добавлен в корзину!`);
+            } else {
+                alert(`Добавьте количество для ${name} перед добавлением в корзину.`);
+            }
+        }
+
         function toggleMenu() {
             const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
+            if (sidebar) {
+                sidebar.classList.toggle('open');
+            }
         }
     </script>
 </body>
