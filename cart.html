@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фруктовые напитки</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <h1>PIMS&MGIMO</h1>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">Меню</a></li>
+            <li><a href="#">Корзина</a></li>
+            <li><a href="#">Статус заказа</a></li>
+            <li><a href="#">Обратная связь</a></li>
+           
+        </ul>
+    </div>
+  
+    <div class="menu-container">
+       
+        <div class="menu-item">
+            <img src="img/sprite_p.png" alt="Кофе">
+            <h2>Кофе</h2>
+            <p>Освежающий кофе из свежих зерен.</p>
+            <button>Добавить</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/corona_p.png" alt="Чай">
+            <h2>Чай</h2>
+            <p>Чай с натуральными ингредиентами.</p>
+            <button>Добавить</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/fanta_p.png" alt="Смузи">
+            <h2>Смузи</h2>
+            <p>Фруктовый смузи с натуральным вкусом.</p>
+            <button>Добавить</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/baikal_reserve_большой_p.png" alt="Апельсиновый сок">
+            <h2>Апельсиновый сок</h2>
+            <p>Свежевыжатый апельсиновый сок.</p>
+            <button>Добавить</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/sprite_p.png" alt="Кофе">
+            <h2>Кофе</h2>
+            <p>Освежающий кофе из свежих зерен.</p>
+            <button>Добавить</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/corona_p.png" alt="Чай">
+            <h2>Чай</h2>
+            <p>Чай с натуральными ингредиентами.</p>
+            <button>Добавить</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/fanta_p.png" alt="Смузи">
+            <h2>Смузи</h2>
+            <p>Фруктовый смузи с натуральным вкусом.</p>
+            <button>Добавить</button>
+        </div>
+        <div class="menu-item">
+            <img src="img/baikal_reserve_большой_p.png" alt="Апельсиновый сок">
+            <h2>Апельсиновый сок</h2>
+            <p>Свежевыжатый апельсиновый сок.</p>
+            <button>Добавить</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
