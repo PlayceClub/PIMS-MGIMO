@@ -1,52 +1,277 @@
+/* Основные стили */
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: #ffffff;
+    font-family: 'Arial', sans-serif;
+    background: #e6e6e6;
     color: #333;
-    overflow-x: hidden;
+    transition: background 0.3s, color 0.3s;
 }
 
-/* Стили шапки */
 header {
-    position: fixed;
+    background: #ffffffda;
+    color: #ff5722;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
-    background: #ffffffe5;
-    color: rgb(255, 72, 0);
-    padding: 15px 10px;
+    z-index: 1000;
+    box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-icon {
+    font-size: 44px;
+    cursor: pointer;
+  padding:0 8% 0 0;
+}
+
+.theme-toggle {
+    width: 50px;
+    height: 25px;
+    background: #6d6d6d;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center; /* Центрирование содержимого по горизонтали */
-    z-index: 1000;
-    box-shadow: 2px 3px 5px 2px rgba(255, 72, 0, 0.13);
+    padding: 2px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
-    margin: 0;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center; /* Центрирование текста внутри h1 */
-}
-
-header .menu-icon {
+.theme-toggle span {
+    width: 21px;
+    height: 21px;
+    background: white;
+    border-radius: 50%;
     position: absolute;
-    left: 15px; /* Меню всегда на левом краю */
-    font-size: 34px;
-    cursor: pointer;
+    left: 2px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Стили выдвигающегося меню */
+/* Выдвигающееся меню */
+
+/* Фильтр категорий */
+.filter {
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #ff5722;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    box-shadow: 3px 5px 5px 1px rgb(202, 202, 202);
+}
+
+button:hover {
+    background: #ff5722;
+}
+
+/* Кнопки в тёмной теме */
+.dark-theme button {
+    background: #ff5722;
+    color: #fff;
+    box-shadow: 3px 5px 5px 1px rgb(0, 0, 0);
+}
+
+.dark-theme button:hover {
+    background: #ff5722;
+}
+
+/* Фильтр категорий */
+.filter button {
+    margin: 5px;
+}
+
+/* Счётчик товаров */
+.counter button {
+    background: #ff5722;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    height: 12%;
+    font-size: 20px;
+    
+}
+
+.counter button:hover {
+    background: #ff5722;
+}
+
+.dark-theme .counter button {
+    background: #444;
+    color: #fff;
+    
+}
+
+.dark-theme .counter button:hover {
+    background: #ff5722;
+}
+
+/* Меню товаров */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.menu-item {
+    background: white;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.menu-item img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-color: 20px #ff5722;
+}
+
+.counter {
+    display: flex;
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    margin: 10px 0;
+    gap: 5px; /* Пространство между кнопками */
+    flex-wrap: nowrap; /* Предотвращаем перенос */
+}
+
+/* Кнопки в счётчике */
+.counter button {
+    background: #fffbfb;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 40px; /* Минимальная ширина кнопок для равномерности */
+    text-align: center;
+    box-shadow: 4 8px 8px 4px rgb(0, 0, 0);
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.counter button:hover {
+    background: #ff5722;
+    transform: scale(1.1);
+}
+
+/* Число (счётчик) */
+.counter span {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 30px; /* Минимальная ширина для правильного выравнивания */
+    text-align: center;
+}
+
+/* Адаптивность для счётчика */
+@media (max-width: 20px) {
+    .counter {
+        gap: 5px; /* Уменьшаем пространство между кнопками */
+    }
+
+    .counter button {
+        padding: 5px 10px; /* Уменьшаем отступы в кнопках */
+        font-size: 14px; /* Уменьшаем шрифт кнопок */
+        min-width: 35px; /* Минимальная ширина кнопок на мобильных устройствах */
+    }
+
+    .counter span {
+        font-size: 14px; /* Уменьшаем размер текста счётчика */
+    }
+}
+
+@media (max-width: 480px) {
+    .counter {
+        flex-direction: column; /* Переключаем на вертикальное расположение */
+        gap: 15px; /* Пространство между элементами */
+    }
+
+    .counter button {
+        padding: 8px; /* Увеличиваем высоту кнопок для удобства */
+        width: 15%; /* Кнопки занимают всю ширину */
+    }
+
+    .counter span {
+        margin: 5px 0; /* Добавляем отступы сверху и снизу для числа */
+    }
+}
+.view-cart {
+    position: fixed; /* Фиксированное положение */
+    bottom: 0px; /* Отступ от нижней границы экрана */
+    width: 100%;/* Центрирование по горизонтали */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование по горизонтали через трансформацию */
+    padding: 10px;
+    background: #ff5722;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Обеспечить отображение поверх остальных элементов */
+    transition: background 0.3s, transform 0.3s;
+    text-align: center;
+}
+
+.view-cart:hover {
+    background: rgb(199, 96, 0);
+    transform: translateX(-50%) scale(1.05); /* Лёгкое увеличение при наведении */
+}
+
+/* Адаптация для тёмной темы */
+.dark-theme .view-cart {
+    background: #ff5722;
+    color: white;
+}
+
+.dark-theme .view-cart:hover {
+    background: #ff5722;
+}
+/* Тёмная тема */
+.dark-theme {
+    background: #121212;
+    color: white;
+}
+
+.dark-theme header {
+    background: #333333e1;
+}
+
+.dark-theme .theme-toggle {
+    background: #555;
+}
+
+.dark-theme .menu-item {
+    background: #1e1e1e;
+    color: white;
+}
+/* Выдвигающееся меню */
+
 .sidebar {
     position: fixed;
     top: -100%;
-    left: 0px;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
-    box-shadow: 2px 3px 5px 2px rgba(255, 72, 0, 0.13);
+    background: #ffffffdc;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     z-index: 999;
-    transition: top 0.4s ease-in-out;
+    transition: top 0.7s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,205 +289,35 @@ header .menu-icon {
 }
 
 .sidebar ul li {
-    padding: 15px 20px;
-    border-bottom: 1px solid  rgba(255, 72, 0, 0.329);
+    padding: 30px 20px;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 .sidebar ul li a {
     text-decoration: none;
     color: #333;
-    font-size: 26px;
-}
-
-/* Карточки напитков */
-.container {
-    margin: 80px auto 20px auto;
-    max-width: 600px;
-}
-
-.drink-card {
-    background: #fffaf0;
-    margin: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.drink-card:hover {
-    transform: scale(1.05);
-}
-
-.drink-card img {
-    width: 100%;
-    border-radius: 10px 10px 0 0;
-}
-
-.drink-card h2 {
-    margin: 0px 0;
-    font-size: 20px;
-    color: #ff7f50;
-}
-
-.drink-card p {
-    font-size: 16px;
-    color: #555;
-}
-
-button {
-    background-color: #ff7f50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff5722;
-}
-
-/* Стили для кастомной дорожки скролла */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #ff7f50;
-    border-radius: 10px;
-    border: 2px solid #ffffff;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #ff5722;
+    font-size: 30px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 100px 20px 20px 20px;
-    max-width: 1200px;
-    margin: auto;
+/* Тёмная тема для sidebar */
+.dark-theme .sidebar {
+    background: #1e1e1eea;
+    color: #fff; /* Цвет текста в тёмной теме */
+    
+    
 }
 
-.menu-item {
-    background: rgb(255, 247, 242);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.dark-theme .sidebar ul li a {
+    color: #fff; /* Цвет ссылок в тёмной теме */
 }
 
-.menu-item img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-.menu-item h2 {
-    margin: 10px 0;
-    font-size: 18px;
-    color: #ff7f50;
-}
-
-.menu-item p {
-    font-size: 14px;
-    color: #555;
-}
-
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #f8f8f8;
-    color: #333;
-    overflow-x: hidden;
+.dark-theme .sidebar ul li a:hover {
+    color: #ffa726; /* Цвет ссылок при наведении */
 }
 
 
 .menu-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    padding: 100px 20px 20px 20px;
-    max-width: 1200px;
-    margin: auto;
+    padding-bottom: 15px;
 }
 
-.menu-item, .cart-item {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.cart-container {
-    margin: 80px auto 20px auto;
-    max-width: 600px;
-    padding: 20px;
-    background: #fffaf0;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-button {
-    background-color: #ff7f50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-button:hover {
-    background-color: #ff5722;
-}
-.counter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.counter button {
-    background-color: #ff7f50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.counter button:hover {
-    background-color: #ff5722;
-}
-
-.cart-item img {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-}
