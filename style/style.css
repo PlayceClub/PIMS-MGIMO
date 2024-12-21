@@ -21,9 +21,8 @@ header {
 }
 
 .menu-icon {
-    font-size: 44px;
+    font-size: 24px;
     cursor: pointer;
-  padding:0 8% 0 0;
 }
 
 .theme-toggle {
@@ -91,16 +90,12 @@ button:hover {
 
 /* Счётчик товаров */
 .counter button {
-    background: #ff5722;
+    background: #ff7f50;
     border: none;
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-    width: 10%;
-    height: 12%;
-    font-size: 20px;
-    
 }
 
 .counter button:hover {
@@ -121,33 +116,29 @@ button:hover {
 .menu-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    padding: 10px;
+    gap: 20px;
+    padding: 20px;
 }
-
 .menu-item {
     background: white;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 .menu-item img {
-    width: 200px;
+    width: 100%;
     height: auto;
     margin-bottom: 10px;
-    border-radius: 10px;
-    border-color: 20px #ff5722;
+    border-radius: 5px;
 }
 
 .counter {
     display: flex;
-    justify-content: center; /* Центрируем элементы по горизонтали */
-    align-items: center; /* Выравниваем элементы по вертикали */
+    justify-content: center;
+    align-items: center;
     margin: 10px 0;
-    gap: 5px; /* Пространство между кнопками */
-    flex-wrap: nowrap; /* Предотвращаем перенос */
+    gap: 10px;
 }
 
 /* Кнопки в счётчике */
@@ -321,3 +312,9 @@ button:hover {
     padding-bottom: 15px;
 }
 
+
+@media (max-width: 768px) {
+    .menu-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
