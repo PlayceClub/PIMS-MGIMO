@@ -159,11 +159,11 @@ header {
     grid-template-columns: repeat(2, 1fr); /* Две колонки для всех разрешений */
     gap: 10px; /* Пространство между элементами */
     background: rgb(235, 235, 235);
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .dark-theme .menu-container{
-    background: black;
+    background: #121212;
 }
 .menu-item {
     background: rgb(255, 255, 255);
