@@ -6,7 +6,7 @@ body {
     color: #333;
     transition: background 0.3s, color 0.3s;
     -webkit-tap-highlight-color: transparent;
-    padding-top: 60px; /* Отступ, равный высоте шапки */
+    padding-top: 120px; /* Отступ, равный высоте шапки */
 }
 
 /* Header */
