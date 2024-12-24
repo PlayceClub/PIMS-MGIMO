@@ -158,7 +158,7 @@ header {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Две колонки для всех разрешений */
     gap: 10px; /* Пространство между элементами */
-    background: rgb(235, 235, 235);
+    background: rgb(255, 255, 255);
     margin-left: auto;
     margin-right: auto;
 }
@@ -347,7 +347,7 @@ header {
     margin-top: 40px;
 }
 
-.add-to-cart {
+.add-to-cartB {
     font-family: "Helvetica", "Arial", sans-serif;
     display: inline-block;
     font-size: 1em;
@@ -369,10 +369,10 @@ header {
     margin-right: auto;
     
   }
-  .add-to-cart:focus {
+  .add-to-cartB:focus {
     outline: 0;
   }
-  .add-to-cart:before, .add-to-cart:after {
+  .add-to-cartB:before, .add-to-cart:after {
     position: absolute;
     content: "";
     display: block;
@@ -383,30 +383,30 @@ header {
     transition: all ease-in-out 21.5s;
     background-repeat: no-repeat;
   }
-  .add-to-cart:before {
+  .add-to-cartB:before {
     display: none;
     top: -75%;
     
     background-image: radial-gradient(circle, #ffee00 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ffbb00 20%, transparent 30%), radial-gradient(circle, #ff6600 20%, transparent 20%), radial-gradient(circle, #ff8800 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ffee00 15%, transparent 20%), radial-gradient(circle, #ff9900 20%, transparent 20%), radial-gradient(circle, #ffffff 20%, transparent 20%), radial-gradient(circle, #ff6600 20%, transparent 20%), radial-gradient(circle, #ffe600 20%, transparent 20%);
     background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
   }
-  .add-to-cart:after {
+  .add-to-cartB:after {
     display: none;
     bottom: -75%;
     background-image: radial-gradient(circle, #ff8800 20%, transparent 20%), radial-gradient(circle, #ffa600 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ffffff 15%, transparent 20%), radial-gradient(circle, #ffbb00 20%, transparent 20%), radial-gradient(circle, #ffffff 20%, transparent 20%), radial-gradient(circle, #ffe7b4 20%, transparent 20%), radial-gradient(circle, #ff9100 20%, transparent 20%);
     background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
   }
-  .add-to-cart:active {
+  .add-to-cartB:active {
     transform: scale(0.9);
     color: #000;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 25px rgba(255, 241, 114, 0.2);
   }
-  .add-to-cart.animate:before {
+  .add-to-cartB.animate:before {
     display: block;
     animation: topBubbles ease-in-out 0.75s forwards;
   }
-  .add-to-cart.animate:after {
+  .add-to-cartB.animate:after {
     display: block;
     animation: bottomBubbles ease-in-out 0.75s forwards;
   }
@@ -513,3 +513,171 @@ header {
         transform: rotate(360deg);
     }
 }
+.cart-sidebar {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffffda;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: top 0.7s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-sidebar.open {
+    top: 0;
+}
+
+.cart-sidebar-content {
+    padding: 20px;
+}
+
+
+.dark-theme .cart-sidebar{
+
+    background: rgba(0, 0, 0, 0.897);
+color: white;
+}
+
+/* Основной стиль для объединенной кнопки */
+.add-to-cartB {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+   
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 150px;
+}
+
+
+
+/* Стиль для кнопки "-" */
+.add-to-cartB .minus {
+   
+    
+    border: none;
+    border-radius: 25%;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+     background: rgba(255, 255, 255, 0.644);   
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* Стиль для кнопки "+" */
+.add-to-cartB .plus {
+   
+    
+    border: none;
+    border-radius: 25%;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+     background: rgba(255, 255, 255, 0.644);   
+    transition: background-color 0.3s ease;
+}
+
+
+/* Количество товара */
+.add-to-cartB .quantity {
+    font-size: 36px;
+    font-weight: bold;
+    
+    margin: 0 10px;
+    text-align: center;
+    flex-grow: 1;
+}
+/* Общий стиль для модального окна */
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+/* Стиль текста "Ваша корзина пуста" */
+.cart-sidebar .empty-cart {
+    font-size: 18px;
+    font-weight: bold;
+    color: #9c9c9c;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Стиль для элементов корзины */
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ff910075;
+    padding: 15px 0;
+}
+
+.cart-item img {
+    width: auto;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.cart-item p {
+    margin: 5px 0;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+/* Стиль кнопки "Удалить" */
+.remove-from-cart {
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.remove-from-cart:hover {
+    background: #e64a19;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 480px) {
+    .cart-sidebar {
+        width: 100%;
+    }
+
+    .cart-item {
+        padding: 10px 0;
+    }
+
+    .remove-from-cart {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .cart-item p {
+        font-size: 14px;
+    }
+}
+
