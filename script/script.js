@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         preloader.style.opacity = "0";
         preloader.style.visibility = "hidden";
         preloader.style.transition = "opacity 1s ease, visibility 1s ease";
-    }, 2500);
+    }, 2000);
 });
 var animateButton = function(e) {
 
