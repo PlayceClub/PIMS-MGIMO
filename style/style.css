@@ -572,7 +572,7 @@ color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
      background: rgba(255, 255, 255, 0.644);   
     transition: background-color 0.3s ease;
@@ -591,7 +591,7 @@ color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
      background: rgba(255, 255, 255, 0.644);   
     transition: background-color 0.3s ease;
@@ -600,7 +600,7 @@ color: white;
 
 /* Количество товара */
 .add-to-cartB .quantity {
-    font-size: 36px;
+    font-size: 26px;
     font-weight: bold;
     
     margin: 0 10px;
