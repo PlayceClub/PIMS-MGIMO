@@ -224,21 +224,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Закрытие свайпом
-    let startX = 0;
-    let currentX = 0;
+    let startY = 0;
+    let currentY = 0;
     let isSwiping = false;
 
     cartSidebar.addEventListener('touchstart', (event) => {
-        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
         isSwiping = true;
     });
 
     cartSidebar.addEventListener('touchmove', (event) => {
         if (!isSwiping) return;
-        currentX = event.touches[0].clientX;
-        const deltaX = currentX - startX;
+        currentY = event.touches[0].clientY;
+        const deltaY = startY - currentY;
 
-        if (deltaX > 50) {
+        if (deltaY > 50) {
             cartSidebar.classList.remove('open');
             isSwiping = false;
         }
@@ -247,10 +247,8 @@ document.addEventListener("DOMContentLoaded", function () {
     cartSidebar.addEventListener('touchend', () => {
         isSwiping = false;
     });
-
-    // Инициализация нижней панели с общей стоимостью и кнопкой "Оплатить"
-    updateFooterSummary();
 });
+
 let startX = 0;
     let currentX = 0;
     let isSwiping = false;
