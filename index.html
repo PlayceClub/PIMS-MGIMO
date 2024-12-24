@@ -36,63 +36,57 @@
 
     <!-- Основное меню -->
     <div class="menu-container" id="menu-container">
-        <div class="menu-item">
-            <img src="img/baikal_reserve_большой_p.png" alt="Item">
-            <h1>Coca-Cola</h1>
-            <p class="description">Описание товараОписание товараОписание товараОписание товара</p>
-            <div class="price" data-price="250"></div>
-            <div class="counter">
-                <button>−</button>
-                <span></span>
-                <button>+</button>
+        
+        <div class="menu-item" data-name="Товар 1" data-price="250">
+            <img src="img/redbull_p.png" alt="Товар 1">
+            <p class="description">Описание товара</p>
+            <div class="price-container">
+                <span class="price">250 ₽</span>
             </div>
-           
-            <button class="add-to-cart">Добавить в корзину</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/baikal_reserve_большой_p.png" alt="Item">
-            <h1>Coca-Cola</h1>
-            <p class="description">Описание товараОписание товараОписание товараОписание товара</p>
-            <div class="price" data-price="250"></div>
             <div class="counter">
-                <button>−</button>
-                <span></span>
-                <button>+</button>
+              
+                
+        
             </div>
-            
-            <button class="add-to-cart">Добавить в корзину</button>
+            <button class="add-to-cartB">Добавить в корзину</button>
         </div>
-        <div class="menu-item">
-            <img src="img/baikal_reserve_большой_p.png" alt="Item">
-            <h1>Coca-Cola</h1>
-            <p class="description">Описание товараОписание товараОписание товараОписание товара</p>
-            <div class="price" data-price="250"></div>
-            <div class="counter">
-                <button>−</button>
-                <span></span>
-                <button>+</button>
-            </div>
-            
-            <button class="add-to-cart">Добавить в корзину</button>
-        </div>
-        <div class="menu-item">
-            <img src="img/baikal_reserve_большой_p.png" alt="Item">
-            <h1>Coca-Cola</h1>
-            <p class="description">Описание товараОписание товараОписание товараОписание товара</p>
-
-            <div class="price" data-price="250"></div>
-            <div class="counter">
-                <button>−</button>
-                <span></span>
-                <button>+</button>
-            </div>
-           
-            <button class="add-to-cart">Добавить в корзину</button>
-        </div>
-    </div>
 
 
-    <a href="cart.html" class="view-cart">Корзина</a>
+        <div class="menu-item" data-name="Товар 2" data-price="250">
+            <img src="img/fanta_p.png" alt="Товар 1">
+            <p class="description">Описание товара</p>
+            <div class="price-container">
+                <span class="price">250 ₽</span>
+            </div>
+            <div class="counter">
+              
+                
+        
+            </div>
+            <button class="add-to-cartB">Добавить в корзину</button>
+        </div>
+
+        <div class="menu-item" data-name="Товар 3" data-price="250">
+            <img src="img/sprite_p.png" alt="Товар 1">
+            <p class="description">Описание товара</p>
+            <div class="price-container">
+                <span class="price">250 ₽</span>
+            </div>
+            <div class="counter">
+              
+                
+        
+            </div>
+            <button class="add-to-cartB">Добавить в корзину</button>
+        </div>
+        
+        <div id="cart-sidebar" class="cart-sidebar">
+            <span id="total-price"></span>
+    <div id="cart-sidebar-content" class="cart-sidebar-content"></div>
+ 
+</div>
+
+    <a class="view-cart">Корзина</a>
 
     <script src="script/script.js"></script>
 </body>
