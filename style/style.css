@@ -12,8 +12,8 @@ body {
 /* Header */
 header {
     background: #ffffff; /* Полупрозрачный фон */
-    color: #ff5722; /* Цвет текста */
-    padding: 15px; /* Внутренний отступ */
+    color: #ff7300; /* Цвет текста */
+    padding:  15px 30px 0px 0px ; /* Внутренний отступ */
     display: flex; /* Flexbox для выравнивания */
     justify-content: left; /* Центрирование текста */
     align-items: center; /* Центрирование по вертикали */
@@ -38,7 +38,7 @@ header {
     border-radius: 50px;
     position: absolute;
     right: 40px;
-    top: 50%;
+    top: 56%;
     transform: translateY(-50%);
     cursor: pointer;
     display: flex;
@@ -65,7 +65,7 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #ffffffda;
+    background: #ffffffef;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     z-index: 999;
     transition: top 0.7s ease-in-out;
@@ -76,6 +76,12 @@ header {
 
 .sidebar.open {
     top: 0;
+    z-index: 1000;
+}
+
+.dark-theme .sidebar.open{
+    top: 0;
+    z-index: 1000;
 }
 
 .sidebar ul {
@@ -109,8 +115,9 @@ header {
 
 /* Тёмная тема для sidebar */
 .dark-theme .sidebar {
-    background: #1e1e1eea;
+    background: #000000d6;
     color: #fff; /* Цвет текста в тёмной теме */
+    z-index: 999;
 }
 
 .dark-theme .sidebar ul li a {
@@ -166,7 +173,7 @@ header {
     background: #121212;
 }
 .menu-item {
-    background: rgb(255, 255, 255);
+    background: rgb(238 238 238);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -226,7 +233,7 @@ header {
     right: 5px; /* Отступ от правого края */
     width: 30px;
     height: 100px;
-    background: #ff5722;
+    background: #ff7300;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -235,7 +242,7 @@ header {
     justify-content: center;
     align-items: center;
     box-shadow: -7px 7px 3px 3px rgba(0, 0, 0, 0.158);
-    z-index: 1000;
+    z-index: 500;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     writing-mode: vertical-lr; /* Вертикальное расположение текста */
@@ -243,8 +250,10 @@ header {
 }
 
 .view-cart:hover {
-    background: rgb(199, 96, 0);
+    background: #ff7300;
     transform: scale(1.05); /* Легкое увеличение при наведении */
+    z-index: 1;
+
 }
 
 /* Адаптивность */
@@ -282,12 +291,16 @@ header {
 
 
 .dark-theme .view-cart {
-    background: #ff5722;
+    background: #ff7300;
     color: white;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgba(255, 136, 0, 0.342);
+    
 }
 
 .dark-theme .view-cart:hover {
-    background: #ff5722;
+    background: #ff7300;
+    transform: scale(1.05); /* Легкое увеличение при наведении */
 }
 /* Тёмная тема */
 .dark-theme {
@@ -296,8 +309,9 @@ header {
 }
 
 .dark-theme header {
-    background: #000000e1;
+    background: #000000e3;
     color: #ff7b00;
+    
 }
 
 .dark-theme .theme-toggle {
@@ -311,6 +325,7 @@ header {
 .dark-theme .sidebar {
     background: #1e1e1eea;
     color: #fff; /* Цвет текста в тёмной теме */
+    z-index: 2;
     
     
 }.dark-theme .sidebar ul li a {
@@ -566,7 +581,7 @@ color: white;
    
     
     border: none;
-    border-radius: 25%;
+    border-radius: 35%;
     width: 25%;
     height: 100%;
     display: flex;
@@ -585,7 +600,7 @@ color: white;
    
     
     border: none;
-    border-radius: 25%;
+    border-radius: 35%;
     width: 25%;
     height: 100%;
     display: flex;
@@ -600,7 +615,7 @@ color: white;
 
 /* Количество товара */
 .add-to-cartB .quantity {
-    font-size: 26px;
+    font-size: 16px;
     font-weight: bold;
     
     margin: 0 10px;
@@ -681,3 +696,67 @@ color: white;
     }
 }
 
+/* Стили модального окна */
+.modal {
+    color: rgb(0, 0, 0);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1100;
+    box-shadow: 20px rgb(255, 255, 255);
+}
+
+#chat-message {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    border: 1px solid #0000001c;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #ffffff;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* Стили кнопок в модальном окне */
+.send-button {
+    background-color: #ff7300;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.close-button {
+    background-color: #ccc;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Кнопка для открытия чата */
+.chat-button {
+    position: absolute;
+    display: flex;
+    top: 42%;
+    right: 120px;
+    background-color: #ff7300;
+    transition: ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 5px 30px rgba(255, 136, 0, 0.212);;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 13px;
+    cursor: pointer;
+    z-index: 1000;
+}
