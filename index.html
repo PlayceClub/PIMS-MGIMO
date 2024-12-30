@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIMSxMGIMO</title>
     <link href="style/style.css" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css.map">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-    <div id="preloader">
-  <div id="loader"></div>
-</div>
+    <div class="preloader">
+        <img src="img/orangepims.png" alt="Loading...">
+    </div>
     <!-- Выдвигающееся меню -->
     <nav id="sidebar" class="sidebar">
         <ul>
            
             <li><a href="index.html">Меню</a></li>
-            <li><a href="mess.html">Галерея </a></li>
+            <li><a href="mess.html">О нас</a></li>
             <li><a href="contact.html">Новости</a></li>
 
         </ul>
@@ -24,7 +27,7 @@
 
     <header>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <h1>PIMS&MGIMO</h1>
+        <h1 style="font-family: 'Styrene';">PIMS&MGIMO</h1>
         <button id="chat-button" class="chat-button">Чат</button>
         <div class="theme-toggle" onclick="toggleTheme()">
             <span id="toggle-circle"></span>
@@ -40,7 +43,9 @@
         <div class="menu-item" data-name="Товар 1" data-price="250">
             <img src="img/Gaba.jfif" alt="Товар 1">
             <h1>Gaba</h1>
-            <p class="description">Традиционный китайский сильно тонизирующий чай, обладающий фруктово-пряным ароматом с медовыми и цитрусовыми нотками.</p>
+            
+            <p style="font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" class="description">Традиционный китайский сильно тонизирующий чай, обладающий фруктово-пряным ароматом с медовыми и цитрусовыми нотками.</p>
+
             <div class="price-container">
                 <span class="price">250 ₽</span>
             </div>
@@ -55,7 +60,8 @@
 
         <div class="menu-item" data-name="Товар 2" data-price="250">
             <img src="img/Gaba.jfif" alt="Товар 1">
-            <p class="description">Описание товара</p>
+            <h1>Gaba</h1>
+            <p style="font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" class="description">Традиционный китайский сильно тонизирующий чай, обладающий фруктово-пряным ароматом с медовыми и цитрусовыми нотками.</p>
             <div class="price-container">
                 <span class="price">250 ₽</span>
             </div>
@@ -69,7 +75,9 @@
 
         <div class="menu-item" data-name="Товар 3" data-price="250">
             <img src="img/Gaba.jfif" alt="Товар 1">
-            <p class="description">Описание товара</p>
+            <h1>Gaba</h1>
+
+            <p style="font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" class="description">Традиционный китайский сильно тонизирующий чай, обладающий фруктово-пряным ароматом с медовыми и цитрусовыми нотками.</p>
             <div class="price-container">
                 <span class="price">250 ₽</span>
             </div>
@@ -88,7 +96,26 @@
 </div>
 
     <a class="view-cart">Корзина</a>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const preloader = document.querySelector('.preloader');
+    const content = document.querySelector('.content');
 
+    // Показываем preloader до загрузки страницы
+    preloader.style.display = 'flex';
+
+    // Убираем preloader после загрузки всех ресурсов
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.style.opacity = 0;
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                content.style.display = 'block';
+            }, 900); // Задержка для завершения анимации исчезновения
+        }, 3000); // Задержка отображения preloader (1 секунда минимум)
+    });
+});
+</script>
     <script src="script/script.js"></script>
 </body>
 </html>
