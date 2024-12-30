@@ -557,4 +557,22 @@ let startX = 0;
         isSwiping = false;
     });
 
+// Отключение зума через клавиатуру и жесты
+document.addEventListener('keydown', (event) => {
+    if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '0')) {
+        event.preventDefault(); // Отключаем зум клавишами
+    }
+});
+
+document.addEventListener('gesturestart', (event) => {
+    event.preventDefault(); // Отключаем жесты масштабирования
+});
+
+document.addEventListener('gesturechange', (event) => {
+    event.preventDefault(); // Отключаем жесты масштабирования
+});
+
+document.addEventListener('gestureend', (event) => {
+    event.preventDefault(); // Отключаем жесты масштабирования
+});
 
