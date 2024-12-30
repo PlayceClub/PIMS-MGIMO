@@ -1,4 +1,15 @@
 /* Основные стили */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/Styrene-B-LC-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -7,6 +18,13 @@ body {
     transition: background 0.3s, color 0.3s;
     -webkit-tap-highlight-color: transparent;
     padding-top: 120px; /* Отступ, равный высоте шапки */
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation; /* Отключает жесты масштабирования */
+    -ms-touch-action: manipulation; /* Для IE */
+    user-select: none; /* Запрещает выделение текста */
+    -webkit-user-select: none; /* Для Safari */
+    -webkit-touch-callout: none; /* Убирает вызов меню на iOS */
+    font-family: 'Styrene', Arial, sans-serif;
 }
 
 /* Header */
@@ -25,7 +43,6 @@ header {
     text-transform: uppercase; /* Текст заглавными буквами */
     line-height: 1;
     margin: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
     
     width: 100%;
 }
@@ -173,7 +190,7 @@ header {
     background: #121212;
 }
 .menu-item {
-    background: rgb(238 238 238);
+    background: #eae8e0;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -196,8 +213,8 @@ header {
 }
 
 .menu-item .description {
-    font-size: 14px;
-    color: #666;
+    font-size: 16px;
+    color: #575757;
     margin-bottom: 10px;
 }
 
@@ -208,18 +225,30 @@ header {
 }
 
 .counter button {
-   padding: 10px 15px;
-    font-size: 26px;
+    padding: 5px 10px;
+    font-size: 18px;
     background: #ff5722;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease-in-out;
+    width: max-content; 
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
 }
 
+.counter button {
+    -webkit-appearance: none; /* Отключение стилей по умолчанию для iOS */
+    margin: 0; /* Сброс отступов */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 .counter span {
@@ -454,80 +483,7 @@ header {
   /*# sourceMappingURL=style.css.map */
   
 
-  #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000000; /* Цвет фона */
-            z-index: 9999;
-            display: flex;
-}
-#loader {
-    display: block;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #ff5e00;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-#loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #ff7d31;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-}
-#loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #ffcf90;
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-}
-@-webkit-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-@keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
+ 
 .cart-sidebar {
     position: fixed;
     top: -100%;
@@ -760,3 +716,40 @@ color: white;
     cursor: pointer;
     z-index: 1000;
 }
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 1; /* Начальная непрозрачность */
+    transition: opacity 0.8s ease; /* Плавное исчезновение */
+    
+}
+
+
+        .preloader img {
+            width: 10%;
+            height: auto;
+            animation: zoomInOut 9s infinite ease-in-out;
+        }
+
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(3.2);
+                opacity: 1;
+            }
+        }
+
+        .content {
+            display: none; /* Скрываем основной контент */
+        }
