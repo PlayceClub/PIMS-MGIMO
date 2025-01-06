@@ -371,7 +371,9 @@ color: white;
 }
 .menu-container1 {
     text-align: center;
-    margin: 20px;
+    margin: 0px;
+    padding-bottom: 20px;
+margin-top: 40px;
 }
 
 .menu-content {
