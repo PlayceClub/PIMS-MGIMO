@@ -1,81 +1,153 @@
-/* Основные стили */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
-@font-face {
-    font-family: 'Styrene';
-    src: url('fonts/Styrene-B-LC-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+/* Общие стили для шапки */
+html {
+    scroll-behavior: smooth;
 }
 
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    
+}
 
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #ffffff;
-    color: #333;
-    transition: background 0.3s, color 0.3s;
-    -webkit-tap-highlight-color: transparent;
-    padding-top: 120px; /* Отступ, равный высоте шапки */
-    -webkit-font-smoothing: antialiased;
-    touch-action: manipulation; /* Отключает жесты масштабирования */
-    -ms-touch-action: manipulation; /* Для IE */
-    user-select: none; /* Запрещает выделение текста */
-    -webkit-user-select: none; /* Для Safari */
-    -webkit-touch-callout: none; /* Убирает вызов меню на iOS */
-    font-family: 'Styrene', Arial, sans-serif;
+    padding: 100px 0px;
+    background-color: #dcdad3;
+    overflow: auto;
+    scrollbar-width: none; /* For Firefox */
+    overflow-x: hidden;
+
 }
 
-/* Header */
+::-webkit-scrollbar {
+    display: none;
+  }
+
 header {
-    background: #ffffff; /* Полупрозрачный фон */
-    color: #ff7300; /* Цвет текста */
-    padding:  15px 30px 0px 0px ; /* Внутренний отступ */
-    display: flex; /* Flexbox для выравнивания */
-    justify-content: left; /* Центрирование текста */
-    align-items: center; /* Центрирование по вертикали */
-    position: fixed; /* "Прилипание" к верхнему краю */
-    top: 0; /* Фиксация у верхнего края экрана */
-    z-index: 1000; /* Отображение поверх остальных элементов */
-    font-family: "Fira Mono", monospace; /* Шрифт */
-    font-weight: 100;
-    text-transform: uppercase; /* Текст заглавными буквами */
-    line-height: 1;
-    margin: 0;
+    display: flex;
+    justify-content: space-between; /* Элементы выравниваются по краям */
+    align-items: center;
+    padding: 0 40px;
+    background-color: #ffffffe5;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 7%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.192);
+}
+
+/* Логотип */
+header .logo a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    margin-right:30%;
     
+}
+.logo-hamburger {
+    display: flex;
+    align-items: center; /* Выравниваем логотип и гамбургер по вертикали */
+    justify-content: space-between;
+  
+    
+    
+    
+}
+
+.logo-img {
+
+display: flex;
+width: 140px;
+height: auto;
+}
+/* Гамбургер */
+.hamburger {
+    cursor: pointer;
+    display: none; /* Показываем гамбургер на всех экранах */
+    font-size: 45px;
+    color: #ff7700;
+    margin-right:10px; /* Отступ от логотипа */
+}
+
+/* Скрытие навигации на мобильных */
+.nav ul {
+    display: flex;
+    position: relative;
+    list-style: none;
+    margin-right: 50%;
     width: 100%;
 }
 
-/* Переключатель темы */
-.theme-toggle {
-    width: 50px;
-    height: 25px;
-    background: #a7a7a7;
-    border-radius: 50px;
-    position: absolute;
-    right: 40px;
-    top: 56%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 2px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+.nav ul li {
+    margin: 0 15px;
 }
 
-.theme-toggle span {
-    width: 21px;
-    height: 21px;
-    background: rgb(255, 255, 255);
-    border-radius: 50%;
-    position: absolute;
-    left: 2px;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
 }
 
-/* Выдвигающееся меню */
+@media (max-width: 858px) {
+    .nav ul  {
+        display: none;
+    }
+}
+@media (min-width: 1900px) {
+    .nav ul li a  {
+        font-size:40px ;
+    }
+
+}
+
+.info {
+    display: flex; /* Размещаем блоки в одну строку */
+    align-items: left;
+    text-align: left; /* Выравниваем элементы по вертикали */
+    gap: 30px; /* Расстояние между блоками */
+}
+
+.item {
+    display: flex; /* Располагаем изображение и текст в одну строку */
+    align-items: center; /* Выравниваем текст по вертикали относительно изображения */
+    gap: 15px; /* Расстояние между изображением и текстом */
+}
+
+img {
+    width: 70%; /* Размер изображения */
+    height: auto;
+}
+
+.text h2 {
+    margin: 0; /* Убираем лишние отступы */
+    font-size: 23px;
+}
+
+.text h3 {
+    margin: 5px 0 0; /* Отступ сверху для разделения с заголовком */
+    font-size: 0.9em; /* Размер текста */
+    color: gray; /* Цвет текста */
+}
+
+
+/* Стили для бокового меню */
+.side-menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000f5;
+    transition: top 0.8s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
 .sidebar {
     position: fixed;
     top: -100%;
@@ -84,8 +156,8 @@ header {
     height: 100%;
     background: #ffffffef;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    transition: top 0.7s ease-in-out;
+    z-index: 1;
+    transition: top 0.9s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,12 +165,12 @@ header {
 
 .sidebar.open {
     top: 0;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .dark-theme .sidebar.open{
     top: 0;
-    z-index: 1000;
+    z-index: 1;
 }
 
 .sidebar ul {
@@ -113,7 +185,7 @@ header {
     border-bottom: 1px solid #0000009c;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 100%;
 }
 
 .sidebar ul li a {
@@ -127,14 +199,14 @@ header {
     border-bottom: 1px solid #ff99009c;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 100%;
 }
 
 /* Тёмная тема для sidebar */
 .dark-theme .sidebar {
-    background: #000000d6;
+    background: #000000ee;
     color: #fff; /* Цвет текста в тёмной теме */
-    z-index: 999;
+    z-index: 1;
 }
 
 .dark-theme .sidebar ul li a {
@@ -145,128 +217,121 @@ header {
     color: #ffa726; /* Цвет ссылок при наведении */
 }
 
-/* Фильтры */
-.filter {
-    border-bottom: 1px solid #ff91009c;
-    color: #ff5722; /* Цвет текста */
-    padding: 10px 15px; /* Отступы */
-    display: flex; /* Flexbox для размещения кнопок */
-    justify-content: center; /* Центрирование фильтров */
-    align-items: center; /* Выравнивание по вертикали */
-    position: sticky; /* "Прилипание" */
-    top: 75px; /* Расположение сразу под шапкой */
-    z-index: 999; /* Отображение над контентом, но ниже шапки */
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 858px) {
+    header {
+        flex-direction: row; /* Горизонтальное расположение элементов */
+        justify-content: space-between;
+    }
+
+    .hamburger {
+        display: block; /* Показываем гамбургер на мобильных устройствах */
+    }
+}
+
+/* Тема переключатель */
+.theme-toggle {
+    width: 60px;
+    height: 35px;
+    background: #868686;
+    border-radius: 50px;
+    position: absolute;
+    right: 20px; /* Правый отступ */
+    top: 50%;
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.theme-toggle span {
+    width: 33px;
+    height: 33px;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.863);
+}
+
+.dark-theme {
+    background: #000000;
+    color: #ff8800;
+}
+
+.dark-theme header  {
+    background: #000000e3;
+    color: #ff8800;
     
 }
 
-/* Кнопки фильтров */
-.filter button {
-    margin: 0 10px; /* Отступы между кнопками */
-    padding: 10px 20px; /* Размер кнопок */
-    background: #ff5722; /* Фон кнопок */
-    color: white; /* Цвет текста кнопок */
-    border: none; /* Убираем границы */
-    border-radius: 5px; /* Закруглённые углы */
-    cursor: pointer; /* Указатель при наведении */
-    transition: background 0.3s ease, transform 0.2s ease-in-out; /* Плавный переход */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.027); /* Тень кнопок */
+.dark-theme .theme-toggle {
+    background: #ff8800;
+}
+.dark-theme .nav ul li a{
+color: white;    
+
 }
 
-.filter button:hover {
-    background: #d94e1f; /* Цвет кнопок при наведении */
-    transform: scale(1.05); /* Лёгкое увеличение */
+@media (max-width: 400px) {
+    .logo-img {
+   
+        display: flex;
+        width: 100px;
+        height: auto;
+        }
+        .hamburger {
+            cursor: pointer;
+            display: none; /* Показываем гамбургер на всех экранах */
+            font-size: 25px;
+            color: #ff8800;
+            margin-right:10px; /* Отступ от логотипа */
+        }
+    .hamburger {
+        display: block; /* Показываем гамбургер на мобильных устройствах */
+    }
+
+
+
+
+     .view-cart:hover {
+        background: #ff7300;
+        transform: scale(1.05); /* Легкое увеличение при наведении */
+        z-index: 1;
+
 }
 
-/* Контейнеры для товаров */
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Две колонки для всех разрешений */
-    gap: 10px; /* Пространство между элементами */
-    background: rgb(255, 255, 255);
-    margin-left: auto;
-    margin-right: auto;
-}
-.dark-theme .menu-container{
-    background: #121212;
-}
-.menu-item {
-    background: #eae8e0;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease-in-out;
+      .dark-theme .view-cart {
+        background: #ff8800;
+        color: white;
+        transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+        box-shadow: 0 2px 25px rgba(255, 136, 0, 0.342);
+    
 }
 
-.menu-item:hover {
-    transform: translateY(-5px);
+      .dark-theme .view-cart:hover {
+        background: #ff7300;
+        transform: scale(1.05); /* Легкое увеличение при наведении */
 }
-
-.menu-item img {
-    width: 100%;
-    max-width: auto;
-    height: auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.menu-item .description {
-    font-size: 16px;
-    color: #575757;
-    margin-bottom: 10px;
-}
-
-.menu-item .counter {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.counter button {
-    padding: 5px 10px;
-    font-size: 18px;
-    background: #ff5722;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    width: max-content; 
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.counter button {
-    -webkit-appearance: none; /* Отключение стилей по умолчанию для iOS */
-    margin: 0; /* Сброс отступов */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
 
-.counter span {
-    font-size: 16px;
-    font-weight: bold;
-}
-/* Кнопка корзины */
 .view-cart {
     position: fixed;
-    bottom: 10px; /* Отступ от нижнего края */
-    right: 5px; /* Отступ от правого края */
+    bottom: 20px; /* Отступ от нижнего края */
+    right: -1px; /* Отступ от правого края */
     width: 30px;
-    height: 100px;
+    height: 50px;
     background: #ff7300;
     color: white;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 5px; /* Скругленные углы */
+    border-radius: 10px 0px 0px 10px; /* Скругленные углы */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -281,475 +346,455 @@ header {
 .view-cart:hover {
     background: #ff7300;
     transform: scale(1.05); /* Легкое увеличение при наведении */
-    z-index: 1;
-
-}
-
-/* Адаптивность */
-
-    .filter {
-        flex-wrap: wrap; /* Перенос кнопок на новую строку при необходимости */
-    }
-
-
-
-
-    .filter {
-        flex-direction: column; /* Вертикальное размещение кнопок */
-        gap: 10px;
-    }
-
-    .menu-item img {
-        max-width: 100%;
-    }
-
-
-
-
-
-
-
-/* Кнопки в тёмной теме */
-
-
-/* Фильтр категорий */
-
-
- 
-
-
-
+    z-index: 1;}
 .dark-theme .view-cart {
-    background: #ff7300;
-    color: white;
-    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 25px rgba(255, 136, 0, 0.342);
-    
-}
-
-.dark-theme .view-cart:hover {
-    background: #ff7300;
-    transform: scale(1.05); /* Легкое увеличение при наведении */
-}
-/* Тёмная тема */
-.dark-theme {
-    background: #121212;
-    color: white;
-}
-
-.dark-theme header {
-    background: #000000e3;
-    color: #ff7b00;
-    
-}
-
-.dark-theme .theme-toggle {
-    background: #ff7b00;
-}
-
-.dark-theme .menu-item {
-    background: #1a1a1a;
-    color: white;
-}
-.dark-theme .sidebar {
-    background: #1e1e1eea;
-    color: #fff; /* Цвет текста в тёмной теме */
-    z-index: 2;
-    
-    
-}.dark-theme .sidebar ul li a {
-    color: #fff; /* Цвет ссылок в тёмной теме */
-}
-
-.dark-theme .sidebar ul li a:hover {
-    color: #ffa726; /* Цвет ссылок при наведении */
-}
-
-.dark-theme .filter {
-    background: #1e1e1e; /* Фон фильтров в тёмной теме */
-    color: white; /* Цвет текста */
-}
+        background: #ff7300;
+        color: white;
+        transition: transform ease-in 0.1s, box-shadow ease-in 0.95s;
+        box-shadow: 0px 0px 25px 7px rgba(255, 136, 0, 0.226);}
 
 
-
-.menu-icon {
-    
-
-    padding-right: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    
-}
-
-.price{
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 20px;
-    font-weight:400 ;
-    color: #868686;
-    display: flex;
-    margin-top: 40px;
-}
-
-.add-to-cartB {
-    font-family: "Helvetica", "Arial", sans-serif;
-    display: inline-block;
-    font-size: 1em;
-    padding: 1em 2em;
-    margin-top: 20px;
-    
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #ff7300;
-    color: #fff;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 2px 25px rgba(255, 136, 0, 0.5);
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    
-  }
-  .add-to-cartB:focus {
-    outline: 0;
-  }
-  .add-to-cartB:before, .add-to-cart:after {
-    position: absolute;
-    content: "";
-    display: block;
-    width: 140%;
-    height: 100%;
-    left: -40%;
-    z-index: -1000;
-    transition: all ease-in-out 21.5s;
-    background-repeat: no-repeat;
-  }
-  .add-to-cartB:before {
-    display: none;
-    top: -75%;
-    
-    background-image: radial-gradient(circle, #ffee00 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ffbb00 20%, transparent 30%), radial-gradient(circle, #ff6600 20%, transparent 20%), radial-gradient(circle, #ff8800 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ffee00 15%, transparent 20%), radial-gradient(circle, #ff9900 20%, transparent 20%), radial-gradient(circle, #ffffff 20%, transparent 20%), radial-gradient(circle, #ff6600 20%, transparent 20%), radial-gradient(circle, #ffe600 20%, transparent 20%);
-    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
-  }
-  .add-to-cartB:after {
-    display: none;
-    bottom: -75%;
-    background-image: radial-gradient(circle, #ff8800 20%, transparent 20%), radial-gradient(circle, #ffa600 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ffffff 15%, transparent 20%), radial-gradient(circle, #ffbb00 20%, transparent 20%), radial-gradient(circle, #ffffff 20%, transparent 20%), radial-gradient(circle, #ffe7b4 20%, transparent 20%), radial-gradient(circle, #ff9100 20%, transparent 20%);
-    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-  }
-  .add-to-cartB:active {
-    transform: scale(0.9);
-    color: #000;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 25px rgba(255, 241, 114, 0.2);
-  }
-  .add-to-cartB.animate:before {
-    display: block;
-    animation: topBubbles ease-in-out 0.75s forwards;
-  }
-  .add-to-cartB.animate:after {
-    display: block;
-    animation: bottomBubbles ease-in-out 0.75s forwards;
-  }
-  
-  @keyframes topBubbles {
-    0% {
-      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-    }
-    50% {
-      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
-    }
-    100% {
-      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
-  }
-  @keyframes bottomBubbles {
-    0% {
-      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
-    }
-    50% {
-      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
-    }
-    100% {
-      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
-      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
-  }
-  
-  /*# sourceMappingURL=style.css.map */
-  
-
- 
-.cart-sidebar {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffffda;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    transition: top 0.7s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cart-sidebar.open {
-    top: 0;
-}
-
-.cart-sidebar-content {
-    padding: 20px;
-}
-
-
-.dark-theme .cart-sidebar{
-
-    background: rgba(0, 0, 0, 0.897);
-color: white;
-}
-
-/* Основной стиль для объединенной кнопки */
-.add-to-cartB {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-   
-   
-    border: none;
-    border-radius: 10px;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    width: 150px;
-}
-
-
-
-/* Стиль для кнопки "-" */
-.add-to-cartB .minus {
-   
-    
-    border: none;
-    border-radius: 35%;
-    width: 25%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    cursor: pointer;
-     background: rgba(255, 255, 255, 0.644);   
-    transition: background-color 0.3s ease;
-}
-
-
-
-/* Стиль для кнопки "+" */
-.add-to-cartB .plus {
-   
-    
-    border: none;
-    border-radius: 35%;
-    width: 25%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    cursor: pointer;
-     background: rgba(255, 255, 255, 0.644);   
-    transition: background-color 0.3s ease;
-}
-
-
-/* Количество товара */
-.add-to-cartB .quantity {
-    font-size: 16px;
-    font-weight: bold;
-    
-    margin: 0 10px;
-    text-align: center;
-    flex-grow: 1;
-}
-/* Общий стиль для модального окна */
-
-.cart-sidebar.open {
-    right: 0;
-}
-
-/* Стиль текста "Ваша корзина пуста" */
-.cart-sidebar .empty-cart {
-    font-size: 18px;
-    font-weight: bold;
-    color: #9c9c9c;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Стиль для элементов корзины */
-.cart-item {
+/* Контейнер для всей меню */
+.menu-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-bottom: 1px solid #ff910075;
-    padding: 15px 0;
-}
-
-.cart-item img {
-    width: auto;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 20px;
-}
-
-.cart-item p {
-    margin: 5px 0;
-    font-size: 20px;
-    color: #ffffff;
-}
-
-/* Стиль кнопки "Удалить" */
-.remove-from-cart {
-    background: #ff5722;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s ease-in-out;
+    justify-content: flex-start;
+    padding: 0px;
+    background: #dfddd6;
     margin-top: 10px;
+    border-radius: 20px 20px 0px 0px;
+    border: 2px solid #ffffff;
+    max-width: 100%; /* Убедиться, что контейнер не выходит за границы экрана */
+    box-sizing: border-box;
+    overflow: hidden; /* Скрыть лишнее содержимое, если что-то вылезает */
+}
+.menu-container1 {
+    text-align: center;
+    margin: 20px;
 }
 
-.remove-from-cart:hover {
-    background: #e64a19;
-}
-
-/* Адаптивный дизайн */
-@media (max-width: 480px) {
-    .cart-sidebar {
-        width: 100%;
-    }
-
-    .cart-item {
-        padding: 10px 0;
-    }
-
-    .remove-from-cart {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-
-    .cart-item p {
-        font-size: 14px;
-    }
-}
-
-/* Стили модального окна */
-.modal {
-    color: rgb(0, 0, 0);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1100;
-    box-shadow: 20px rgb(255, 255, 255);
-}
-
-#chat-message {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-    border: 1px solid #0000001c;
-    border-radius: 4px;
-    padding: 8px;
-    background-color: #ffffff;
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-/* Стили кнопок в модальном окне */
-.send-button {
-    background-color: #ff7300;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.close-button {
-    background-color: #ccc;
-    color: black;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-/* Кнопка для открытия чата */
-.chat-button {
-    position: absolute;
+.menu-content {
     display: flex;
-    top: 42%;
-    right: 120px;
-    background-color: #ff7300;
-    transition: ease-in 0.1s, box-shadow ease-in 0.25s;
-    box-shadow: 0 5px 30px rgba(255, 136, 0, 0.212);;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 13px;
-    cursor: pointer;
-    z-index: 1000;
-}
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    z-index: 10000;
-    opacity: 1; /* Начальная непрозрачность */
-    transition: opacity 0.8s ease; /* Плавное исчезновение */
+}
+
+.swiper-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.text {
+    font-size: 16px;
+}
+
+@media (max-width: 650px) {
+    .menu-container{ margin-top: 20px;}
+    body{
+        padding: 100px 0px;
+    }
+
+}
+/* Заголовок */
+.menu-container h1 {
+    font-size: 2rem;
+    text-align: center;
+    word-wrap: break-word; /* Перенос слов, если текст слишком длинный */
+    max-width: 100%; /* Заголовок не выйдет за пределы контейнера */
+    margin-bottom: 20px;
     
 }
 
 
-        .preloader img {
-            width: 10%;
+/* Контейнер с прокруткой */
+.menu-columns {
+    display: flex;
+    flex-wrap: nowrap; /* Элементы остаются в одной строке */
+    overflow-x: auto; /* Включить горизонтальную прокрутку */
+    gap: 20px;
+    padding: 10px;
+   
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box; /* Учитывать padding в ширине */
+    border: white;
+}
+
+/* Элементы меню */
+.menu-item {
+    position: relative;
+    display: block;
+    flex: 0 0 auto; /* Элементы не сжимаются */
+    width: 70%; /* Фиксированная ширина элемента */
+    margin: 0px;
+    border: 2px solid #ffffff;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.295);
+    transition: box-shadow 0.3s ease;
+    background: #eae9df;
+    border-radius: 20px;
+    
+    
+}
+
+
+
+
+/* Кастомизация scrollbar */
+.menu-columns::-webkit-scrollbar {
+    height: 8px;
+}
+
+.menu-columns::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.menu-columns::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.menu-columns::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Адаптация под маленькие экраны */
+@media (max-width: 768px) {
+    .menu-item {
+        width: 50%; /* Уменьшаем ширину элементов */
+    }
+
+    .menu-container h1 {
+        font-size: 1.5rem; /* Уменьшаем размер заголовка */
+    }
+    .menu-columns {
+        gap: 10px; /* Уменьшаем расстояние между элементами */
+        
+    }
+}
+@media (max-width: 390px) {
+    .menu-item {
+        width: 30%; /* Уменьшаем ширину элементов */
+    }
+
+    .menu-container h1 {
+        font-size: 1.5rem; /* Уменьшаем размер заголовка */
+    }
+    .menu-columns {
+        gap: 10px; /* Уменьшаем расстояние между элементами */
+        width: 81%;
+    }
+}
+@media (max-width: 650px) {
+    .menu-item {
+        width: 100%; /* Еще меньше для маленьких экранов */
+        font-size: 20px;
+    }
+
+    .menu-container h1 {
+        font-size: 1.2rem; /* Еще меньше для заголовка */
+    }
+
+    .menu-columns {
+        gap: 10px; /* Уменьшаем расстояние между элементами */
+        width: 100%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .menu-item {
+        width: 100%; /* Еще меньше для маленьких экранов */
+        font-size: 20px;
+    }
+
+    .menu-container h1 {
+        font-size: 1.2rem; /* Еще меньше для заголовка */
+    }
+
+    .menu-columns {
+        gap: 10px; /* Уменьшаем расстояние между элементами */
+        
+    }
+}
+@media (max-width: 420px) {
+
+
+    .menu-columns {
+        gap: 10px; /* Уменьшаем расстояние между элементами */
+        
+    }
+}
+
+
+        .menu-item:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-item-content {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .menu-item-content img {
+            width: 70%; /* Ширина изображения */
             height: auto;
-            animation: zoomInOut 9s infinite ease-in-out;
+            border-radius: 5px;
+        }
+        .menu-itemNAV {
+            scroll-margin-top: 80px; /* Отступ при прокрутке */
         }
 
-        @keyframes zoomInOut {
-            0%, 100% {
-                transform: scale(0.8);
-                opacity: 0.8;
-            }
-            50% {
-                transform: scale(3.2);
-                opacity: 1;
-            }
+
+        .dark-theme .menu-container{
+            background: #121212;
+            border:  1px solid #1d1d1d;
+        }
+        .text-content {
+            flex: 1;
+        }
+        
+        .text-content h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        
+        .text-content .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .text-content .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .add-to-cart {
+            display: none;
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
+            width: 100%;
+            background-color: #f26d21;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 0px 20px 0px 20px;
+            width: 70%;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #e55c1a;
+        }
+        
+        .add-to-cart.show {
+            display: block;
         }
 
-        .content {
-            display: none; /* Скрываем основной контент */
+ 
+
+        .dark-theme .menu{
+            background: #121212;
+           
+            border-radius: 10px;
         }
+
+        .dark-theme .menu p{
+            color: rgb(255, 255, 255) ;
+            
+        }
+
+        .dark-theme .menu-item h3{
+            color: rgb(255, 145, 0) ;
+            
+        }
+.dark-theme .menu-item{
+        border: 1px solid #ffc7601c;
+    background: #131313;}
+
+
+
+button, a {
+    outline: none;
+}
+
+button:focus, a:focus {
+    outline: none;
+    box-shadow: none;
+}
+.Category{
+    border-radius: 20px;
+}
+    .Category h1{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: rgb(0, 0, 0);
+        border-bottom: 2px solid #ffffff;
+        margin: 0px auto;
+        font-size: 40px;
+        
+    }
+.Category img{
+    display: inline-block;
+    margin-left: 0px;
+    position: relative;
+    height: auto;
+    width: 30px;
+    padding: 20px 0px 0px 0px;
+    top: 0px;
+    
+}
+@media (max-width: 500px) {
+    .Category img{
+        width: 30px;
+        height: auto;
+    }
+
+}
+
+    .dark-theme .category h1{
+        color: #ff8800;
+        border-bottom: 2px solid #ff8800ce;
+       
+    }
+
+      
+     
+      
+   
+   .dark-theme img{
+    border-radius: 60px;
+   }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      margin-right: 60px;
+      border-radius: 0px 10px 10px 10px;
+    }
+    nav ul:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    nav a {
+      text-decoration: none;
+      display: block;
+      transition: 0.3s linear;
+    }
+    
+    .topmenu > li:first-child { border-left: 0; }
+    .topmenu > li > a {
+      padding: 10px 7px;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: #FEFDFD;
+      letter-spacing: 2px;
+      background:#ff7300;
+      border-radius: 5px 5px 5px 5px;
+      font-weight: 500;
+      width: 50%;
+      text-align: center;
+      
+    }
+    .topmenu > li > a.active,
+    .submenu a:hover { color: #ff7300; }
+    .topmenu .fa,
+    .submenu .fa {
+      margin-left: 5px;
+      color: inherit;
+    }
+    .submenu {
+      position: absolute;
+      z-index: 5;
+      min-width: 200px;
+      background: rgba(255, 255, 255, 0.945);
+      margin-top: 28px;
+      
+      visibility: hidden;
+      opacity: 0;
+      transform-origin: 0% 0%;
+      transform: rotateX(-20deg);
+      transition: 0.3s linear;
+      z-index: 0;
+    }
+    .submenu li { position: relative; }
+    .submenu li a {
+        font-family: Arial, Helvetica, sans-serif;
+      color: #000000;
+      padding: 20px 20px;
+      font-size: 15px;
+      border-bottom: 1px solid #0000003f;
+    }
+    .submenu .submenu {
+      position: absolute;
+      left: 100%;
+      top: -1px;
+      transition: 0.3s linear;
+    }
+    nav li:hover > .submenu {
+      transform: rotateX(0deg);
+      visibility: visible;
+      opacity: 1;
+    }
+    button, a {
+        outline: none; /* Убирает синий контур */
+        -webkit-tap-highlight-color: transparent; /* Убирает выделение на мобильных устройствах */
+      }
+
+      .dark-theme .submenu li a{
+        color: #ff7300;
+        border-bottom: 1px solid #833f0054;
+      }
+      .dark-theme .submenu{
+        background: #000000e3;
+        
+      }
+
+      #Preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.856);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+        opacity: 2; /* Начальная непрозрачность */
+        transition: opacity 6s ease; /* Плавное исчезновение */
+        
+    }
+    
+    
+            #Preloader img {
+                width: 10%;
+                height: auto;
+                animation: zoomInOut 6s infinite ease-in-out;
+            }
+    
+            @keyframes zoomInOut {
+                0%, 100% {
+                    transform: scale(0.8);
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: scale(20.2);
+                    opacity: 1;
+                }
+            }
+    
