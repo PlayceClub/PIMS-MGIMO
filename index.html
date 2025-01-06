@@ -1,121 +1,431 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
-    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <title>PIMSxMGIMO</title>
-    <link href="style/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css.map">
-   
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
-    <div class="preloader">
-        <img src="img/orangepims.png" alt="Loading...">
+    <div id="Preloader">
+        <img src="img/Preloader.png" alt="Preloader Image">
     </div>
-    <!-- Выдвигающееся меню -->
-    <nav id="sidebar" class="sidebar">
-        <ul>
+
+        <header>
+            <div class="logo-hamburger">
+
+                <div class="hamburger" id="hamburger">
+                    <span>&#9776;</span>
+                </div>
+
+            </div>
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <span id="toggle-circle"></span>
+            </div>
+            <nav class="nav">
            
-            <li><a href="index.html">Меню</a></li>
-            <li><a href="mess.html">О нас</a></li>
-            <li><a href="contact.html">Новости</a></li>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Галерея</a></li>
+                    <li><a href="#">Новости</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul class="topmenu">
+                    <li>
+                        <a href="#">Меню <i class="fa fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#pure-tea">PURE TEA</a></li>
+                            <li><a href="#tea-cream">TEA&CREAM</a></li>
+                            <li><a href="#full-pims">FULL PIMS</a></li>
+                            <li><a href="#tea-fruits">TEA&FRUITS</a></li>
+                            <li><a href="#milki-tapioca">MILKI&TAPIOCA</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
-        </ul>
-    </nav>
-
-    <header>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <h1 style="font-family: 'Styrene';">PIMS&MGIMO</h1>
-        <button id="chat-button" class="chat-button">Чат</button>
-        <div class="theme-toggle" onclick="toggleTheme()">
-            <span id="toggle-circle"></span>
+<!-- Скрытое меню -->
+<div class="sidebar" id="sidebar">
+    <ul>
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Галерея</a></li>
+        <li><a href="#">Новости</a></li>
+    </ul>
+</div>
+<div class="info">
+    <div class="item">
+        <img src="img/hot.png" alt="Хот">
+        <div class="text">
+            <h2>Хот, хот, хот</h2>
+            <h3>(Теплый напиток)</h3>
         </div>
-    </header>
-
-    <!-- Фильтр категорий -->
-
-
-    <!-- Основное меню -->
-    <div class="menu-container" id="menu-container">
-        
-        <div class="menu-item" data-name="Товар 1" data-price="250">
-            <img src="img/Gaba.jfif" alt="Товар 1">
-            <h1>Gaba</h1>
-            
-            <p style="font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" class="description">Традиционный китайский сильно тонизирующий чай, обладающий фруктово-пряным ароматом с медовыми и цитрусовыми нотками.</p>
-
-            <div class="price-container">
-                <span class="price">250 ₽</span>
-            </div>
-            <div class="counter">
-              
-                
-        
-            </div>
-            <button class="add-to-cartB">Добавить в корзину</button>
+    </div>
+    <div class="item">
+        <img src="img/cold.png" alt="Айс">
+        <div class="text">
+            <h2>Айс, айс, айс</h2>
+            <h3>(Холодный напиток)</h3>
         </div>
-
-
-        <div class="menu-item" data-name="Товар 2" data-price="250">
-            <img src="img/Gaba.jfif" alt="Товар 1">
-            <h1>Gaba</h1>
-            <p style="font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" class="description">Традиционный китайский сильно тонизирующий чай, обладающий фруктово-пряным ароматом с медовыми и цитрусовыми нотками.</p>
-            <div class="price-container">
-                <span class="price">250 ₽</span>
-            </div>
-            <div class="counter">
-              
-                
-        
-            </div>
-            <button class="add-to-cartB">Добавить в корзину</button>
-        </div>
-
-        <div class="menu-item" data-name="Товар 3" data-price="250">
-            <img src="img/Gaba.jfif" alt="Товар 1">
-            <h1>Gaba</h1>
-
-            <p style="font-family:Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif" class="description">Традиционный китайский сильно тонизирующий чай, обладающий фруктово-пряным ароматом с медовыми и цитрусовыми нотками.</p>
-            <div class="price-container">
-                <span class="price">250 ₽</span>
-            </div>
-            <div class="counter">
-              
-                
-        
-            </div>
-            <button class="add-to-cartB">Добавить в корзину</button>
-        </div>
-        
-        <div id="cart-sidebar" class="cart-sidebar">
-            <span id="total-price"></span>
-    <div id="cart-sidebar-content" class="cart-sidebar-content"></div>
- 
+    </div>
 </div>
 
-    <a class="view-cart">Корзина</a>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const preloader = document.querySelector('.preloader');
-    const content = document.querySelector('.content');
 
-    // Показываем preloader до загрузки страницы
-    preloader.style.display = 'flex';
+</div>
+<div class="menu-container">
 
-    // Убираем preloader после загрузки всех ресурсов
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            preloader.style.opacity = 0;
-            setTimeout(() => {
-                preloader.style.display = 'none';
-                content.style.display = 'block';
-            }, 900); // Задержка для завершения анимации исчезновения
-        }, 3000); // Задержка отображения preloader (1 секунда минимум)
-    });
-});
-</script>
-    <script src="script/script.js"></script>
+    <div id="pure-tea" class="menu-itemNAV"></div>
+    
+    <div class="menu">
+        <div class="Category">
+            <img src="img/hot.png">
+         <img src="img/cold.png">
+         
+            <h1>PURE TEA</h1>
+        </div>
+      
+        <div class="menu-columns">
+            
+            <div class="menu-item" onclick="showAddToCartButton(this)">
+                <div class="menu-item-content">
+                    <img src="img/Gaba.jfif" alt="Dish 4">
+                    <div class="text-content">
+                        <h2>Gaba1</h2>
+                        <p class="description">A hearty meal to satisfy your hunger.</p>
+                        <p class="price">$1123.99</p>
+                    </div>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            
+            <div class="menu-item" onclick="showAddToCartButton(this)">
+                <div class="menu-item-content">
+                    <img src="img/Gaba.jfif" alt="Dish 4">
+                    <div class="text-content">
+                        <h2>Gaba2</h2>
+                        <p class="description">A hearty meal to satisfy your hunger.</p>
+                        <p class="price">$1123.99</p>
+                    </div>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            
+            <div class="menu-item" onclick="showAddToCartButton(this)">
+                <div class="menu-item-content">
+                    <img src="img/Gaba.jfif" alt="Dish 4">
+                    <div class="text-content">
+                        <h2>Gaba3</h2>
+                        <p class="description">A hearty meal to satisfy your hunger.</p>
+                        <p class="price">$1123.99</p>
+                    </div>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            
+            <div class="menu-item" onclick="showAddToCartButton(this)">
+                <div class="menu-item-content">
+                    <img src="img/Gaba.jfif" alt="Dish 4">
+                    <div class="text-content">
+                        <h2>Gaba4</h2>
+                        <p class="description">A hearty meal to satisfy your hunger.</p>
+                        <p class="price">$1123.99</p>
+                    </div>
+                </div>
+                <button class="add-to-cart">Добавить в корзину</button>
+            </div>
+            
+        </div>
+        </div> 
+    </div>
+    </div>
+    </div>
+<div class="menu-container">
+<div id="tea-cream" class="menu-itemNAV"></div>
+
+<div class="menu">
+    <div class="Category">
+        <img src="img/hot.png">
+        <img src="img/cold.png">
+           <h1>TEA&CREAM</h1>
+       </div>
+    <div class="menu-columns">
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba1</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba2</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba3</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba4</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+    </div>
+</div>
+</div>
+</div>
+<div class="menu-container">
+<div id="full-pims" class="menu-itemNAV"></div>
+<div class="menu">
+    <div class="Category">
+        <img src="img/cold.png">
+           <h1>FULL PIMS</h1>
+       </div>
+    <div class="menu-columns">
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+    </div>
+</div>
+</div>
+</div>
+<div class="menu-container">
+<div id="tea-fruits" class="menu-itemNAV"></div>
+<div class="menu">
+    <div class="Category">
+        <img src="img/hot.png">
+        <img src="img/cold.png">
+           <h1>TEA&FRUITS</h1>
+       </div>
+        
+    <div class="menu-columns">
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+    </div>
+</div>
+</div>
+</div>
+<div class="menu-container">
+<div id="milki-tapioca" class="menu-itemNAV"></div>
+<div class="menu">
+    
+    <div class="Category">
+        <img src="img/hot.png">
+        <img src="img/cold.png">
+           <h1>MILKY*&TAPIOCA</h1>
+       </div>
+    <div class="menu-columns">
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+        <div class="menu-item" onclick="showAddToCartButton(this)">
+            <div class="menu-item-content">
+                <img src="img/Gaba.jfif" alt="Dish 4">
+                <div class="text-content">
+                    <h2>Gaba</h2>
+                    <p class="description">A hearty meal to satisfy your hunger.</p>
+                    <p class="price">$1123.99</p>
+                </div>
+            </div>
+            <button class="add-to-cart">Добавить в корзину</button>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+</div>
+<div class="menu-container1">
+    <h1 style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 40px; border-bottom: 2px solid black;">JAPANESE COLLECTION</h1>
+    <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">new season</h3>
+    <div class="menu-content">
+        <div class="swiper-container">
+            <div style="padding: 10px;" class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide" data-text="Это текст для ПЕРВОГО изображения. Это текст для первого изображения. Это текст для первого изображения.">
+                    <img src="img/Gaba.jfif" alt="Placeholder Image">
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide" data-text="Это текст для ВТОРОГО изображения. Это текст для второго изображения. Это текст для второго изображения.">
+                    <img src="img/Gaba.jfif" alt="Placeholder Image">
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide" data-text="Это текст для ТРЕТЬЕГО изображения. Это текст для третьего изображения. Это текст для третьего изображения.">
+                    <img src="img/Gaba.jfif" alt="Placeholder Image">
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div class="text" id="dynamic-text">
+            Это текст для первого изображения. Это текст для первого изображения. Это текст для первого изображения.
+        </div>
+    </div>
+</div>
+
+
+<a class="view-cart">Чат</a>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script/script.js"></script>
 </body>
 </html>
