@@ -4,37 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIMSxMGIMO</title>
-    <link href="style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/styleNAV.css">
 </head>
 <body>
-    <!-- Выдвигающееся меню -->
-    <nav id="sidebar" class="sidebar">
-        <ul>
-           
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="menu.html">Меню</a></li>
-            <li><a href="cart.html">Корзина</a></li>
-            <li><a href="contact.html">Контакты</a></li>
+    <!-- Прелоадер -->
 
-        </ul>
-    </nav>
 
+    <!-- Шапка -->
     <header>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <h1>Меню</h1>
+        <div class="logo-hamburger">
+            <div class="hamburger" id="hamburger">
+                <span>&#9776;</span>
+            </div>
+        </div>
         <div class="theme-toggle" onclick="toggleTheme()">
             <span id="toggle-circle"></span>
         </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Галерея</a></li>
+                <li><a href="#">Новости</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <ul class="topmenu">
+                <li>
+                    <a href="#">Меню <i class="fa fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="#pure-tea">PURE TEA</a></li>
+                        <li><a href="#tea-cream">TEA&CREAM</a></li>
+                        <li><a href="#full-pims">FULL PIMS</a></li>
+                        <li><a href="#tea-fruits">TEA&FRUITS</a></li>
+                        <li><a href="#milki-tapioca">MILKI&TAPIOCA</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Фильтр категорий -->
+    <!-- Боковое меню -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Галерея</a></li>
+            <li><a href="#">Новости</a></li>
+        </ul>
+    </div>
 
+    <!-- Меню PURE TEA -->
+    <div id="pure-tea" class="menu-container">
+        <div class="swiper-container menu-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="menu-item" onclick="showAddToCartButton(this)">
+                        <div class="menu-item-content">
+                            <img src="img/Gaba.jfif" alt="Dish 1">
+                            <div class="text-content">
+                                <h2>Gaba1</h2>
+                                <p class="description">A hearty meal to satisfy your hunger.</p>
+                                <p class="price">$1123.99</p>
+                            </div>
+                        </div>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="menu-item" onclick="showAddToCartButton(this)">
+                        <div class="menu-item-content">
+                            <img src="img/Gaba.jfif" alt="Dish 2">
+                            <div class="text-content">
+                                <h2>Gaba2</h2>
+                                <p class="description">A hearty meal to satisfy your hunger.</p>
+                                <p class="price">$1123.99</p>
+                            </div>
+                        </div>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="menu-item" onclick="showAddToCartButton(this)">
+                        <div class="menu-item-content">
+                            <img src="img/Gaba.jfif" alt="Dish 2">
+                            <div class="text-content">
+                                <h2>Gaba2</h2>
+                                <p class="description">A hearty meal to satisfy your hunger.</p>
+                                <p class="price">$1123.99</p>
+                            </div>
+                        </div>
+                        <button class="add-to-cart">Добавить в корзину</button>
+                    </div>
+                </div>
+                <!-- Добавьте другие слайды -->
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
 
-    <!-- Основное меню -->
-   
+    <!-- JAPANESE COLLECTION -->
+    <div class="menu-container1">
+        <h1 style="font-family: Cambria, serif; font-size: 40px; border-bottom: 2px solid black;">
+            JAPANESE COLLECTION
+        </h1>
+        <h3 style="font-family: Cambria, serif;">new season</h3>
+        <div class="menu-content">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/Gaba.jfif" alt="Placeholder Image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Gaba.jfif" alt="Placeholder Image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Gaba.jfif" alt="Placeholder Image">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="text" id="dynamic-text">
+                Это текст для первого изображения. Это текст для первого изображения.
+            </div>
+        </div>
+    </div>
 
-    <a href="cart.html" class="view-cart">Корзина</a>
-
+    <!-- Скрипты -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script/script.js"></script>
 </body>
 </html>
