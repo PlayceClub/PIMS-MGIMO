@@ -1,76 +1,66 @@
-// Инициализация Swiper для контейнеров меню
-const menuSwiper = new Swiper('.menu-swiper', {
+const swiper = new Swiper('.swiper-container', {
     loop: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    grabCursor: true,
 });
 
-// Инициализация Swiper для JAPANESE COLLECTION
-const japaneseCollectionSwiper = new Swiper('.swiper-container', {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    grabCursor: true,
-});
-
-// Логика изменения текста для JAPANESE COLLECTION
 const dynamicText = document.getElementById('dynamic-text');
 
-japaneseCollectionSwiper.on('slideChange', () => {
-    const activeSlide = japaneseCollectionSwiper.slides[japaneseCollectionSwiper.activeIndex];
+swiper.on('slideChange', () => {
+    const activeSlide = swiper.slides[swiper.activeIndex];
     const newText = activeSlide.getAttribute('data-text');
-    if (newText) {
-        dynamicText.textContent = newText;
-    }
+    dynamicText.textContent = newText;
 });
 
-// Логика бокового меню
+window.addEventListener('load', () => {
+    const Preloader = document.getElementById("Preloader");
+    if (Preloader) {
+        Preloader.style.opacity = "1";
+        Preloader.style.visibility = "hidden";
+        Preloader.style.transition = "opacity 3s ease, visibility 3s ease";
+    }
+}, 1000);
+
+// Скрипт для открытия/закрытия бокового меню
+
 const hamburger = document.getElementById('hamburger');
 const sideMenu = document.getElementById('sidebar');
 
-// Переменные для свайпа меню
+// Переменные для отслеживания свайпа
 let touchStartY = 0;
 let touchEndY = 0;
 
-// Открытие/закрытие меню
+// Когда нажимают на гамбургер
 hamburger.addEventListener('click', () => {
     const isOpen = sideMenu.style.top === '0px';
     if (isOpen) {
-        sideMenu.style.top = '-100%';
+        sideMenu.style.top = '-100%'; // Закрыть меню
     } else {
-        sideMenu.style.top = '0';
+        sideMenu.style.top = '0'; // Открыть меню
     }
 });
 
-// Свайп для закрытия бокового меню
+// Отслеживание свайпа для закрытия меню (свайп вверх)
 sideMenu.addEventListener('touchstart', (e) => {
-    touchStartY = e.touches[0].clientY;
+    touchStartY = e.touches[0].clientY; // Сохраняем координату начала свайпа
 });
 
 sideMenu.addEventListener('touchmove', (e) => {
-    touchEndY = e.touches[0].clientY;
+    touchEndY = e.touches[0].clientY; // Обновляем координату конца свайпа
 });
 
 sideMenu.addEventListener('touchend', () => {
+    // Если движение было вверх (положительная разница между координатами)
     if (touchEndY < touchStartY) {
-        sideMenu.style.top = '-100%';
+        sideMenu.style.top = '-100%'; // Закрыть меню (сдвигаем вверх)
     }
 });
-
-// Темная тема
 function toggleTheme() {
     const body = document.body;
     const toggleCircle = document.getElementById("toggle-circle");
@@ -85,15 +75,13 @@ function toggleTheme() {
     }
 }
 
-// Показ кнопки "Добавить в корзину"
+
 function showAddToCartButton(container) {
-    const button = container.querySelector('.add-to-cart');
+    let button = container.querySelector('.add-to-cart');
     if (button) {
         button.classList.toggle('show');
     }
 }
-
-// Плавный скролл по ссылкам меню
 document.querySelectorAll('.submenu a').forEach(link => {
     link.addEventListener('click', function (e) {
         e.preventDefault();
@@ -107,8 +95,9 @@ document.querySelectorAll('.submenu a').forEach(link => {
 
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth',
+                behavior: 'smooth'
             });
         }
     });
 });
+
