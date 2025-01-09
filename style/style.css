@@ -120,10 +120,27 @@ height: auto;
 }
 
 img {
-    width: 70%; /* Размер изображения */
+    width: 94%; /* Размер изображения */
     height: auto;
 }
+@media (max-width: 800px) {
+    .nav ul li a  {
+        font-size:40px ;
+    }
+   .info img{
+        width: 30%;
+        height: auto;
+    }
 
+}
+@media (min-width: 1001px) {
+
+    .info img{
+        width: 10%;
+        height: auto;
+    }
+
+}
 .text h2 {
     margin: 0; /* Убираем лишние отступы */
     font-size: 23px;
@@ -262,6 +279,7 @@ img {
 .dark-theme {
     background: #000000;
     color: #ff8800;
+    transition: 0.1s linear;
 }
 
 .dark-theme header  {
@@ -370,10 +388,65 @@ color: white;
     overflow: hidden; /* Скрыть лишнее содержимое, если что-то вылезает */
 }
 .menu-container1 {
-    text-align: center;
-    margin: 0px;
-    padding-bottom: 20px;
-margin-top: 40px;
+    /* Мягкий градиент с отсылкой к сакуре */
+    background: linear-gradient(180deg, #fa674dfb,#ebafaf, #eae8e0, #eae8e0);
+
+    /* Тёмно-розовая/красная рамка, напоминающая традиционные японские цвета */
+   width: 100%;
+    border-radius: 20px;
+
+    /* Отступы и выравнивание */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 100%; /* Ширину можно настроить под ваш макет */
+
+    /* Тёмный цвет текста для контраста */
+    color: #2e141a;
+
+    /* Японский шрифт (при желании)
+       Чтобы он отображался, необходимо подключить соответствующий шрифт,
+       например, через Google Fonts: 
+         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+    */
+    font-family: 'Noto Serif JP', serif, Cambria, Cochin, Georgia, Times, 'Times New Roman';
+
+    /* Тень для выделения контейнера */
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.363);
+}
+.dark-theme .menu-container1{
+    color: #301f18;
+    background: linear-gradient(180deg, #fda31dfb,#c07c16fb,#573908fb, #1a1102fb, #000000);
+}
+.dark-theme .text{
+    color: #faa11cfb;
+    
+}
+/* Дополнительно можем переопределить стили заголовков внутри контейнера */
+.menu-container1 h1 {
+    font-family: 'Noto Serif JP', serif, Cambria, Cochin, Georgia, Times, 'Times New Roman';
+    font-size: 40px;
+    border-bottom: 2px solid #3d1a23; /* Вместо чёрного можно использовать более глубокий оттенок */
+    margin-bottom: 10px;
+}
+
+.menu-container1 h3 {
+    font-family: 'Noto Serif JP', serif, Cambria, Cochin, Georgia, Times, 'Times New Roman';
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+/* Если нужно изменить стили для текста под слайды */
+.menu-container1 .text {
+    font-size: 40px;
+    line-height: 1.5;
+    margin-top: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #573908fb; /* Вместо чёрного можно использовать более глубокий оттенок */
+   /* Можно добавить лёгкий полупрозрачный фон, если хотите ещё сильнее выделить: */
+    /* background-color: rgba(255, 255, 255, 0.3); */
+
 }
 
 .menu-content {
@@ -625,7 +698,8 @@ margin-top: 40px;
         }
 .dark-theme .menu-item{
         border: 1px solid #ffc7601c;
-    background: #131313;}
+    background: #131313;
+    transition: 0.1s linear;}
 
 
 
@@ -669,7 +743,7 @@ button:focus, a:focus {
     .dark-theme .category h1{
         color: #ff8800;
         border-bottom: 2px solid #ff8800ce;
-       
+        transition: 0.5s linear;
     }
 
       
@@ -695,7 +769,7 @@ button:focus, a:focus {
     nav a {
       text-decoration: none;
       display: block;
-      transition: 0.3s linear;
+      transition: 0.5s linear;
     }
     
     .topmenu > li:first-child { border-left: 0; }
