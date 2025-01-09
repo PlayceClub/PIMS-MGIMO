@@ -47,14 +47,14 @@ header .logo a {
     color: white;
     font-size: 24px;
     text-decoration: none;
-    margin-right:30%;
+   
     
 }
 .logo-hamburger {
     display: flex;
     align-items: center; /* Выравниваем логотип и гамбургер по вертикали */
     justify-content: space-between;
-  
+    width: 20%;
     
     
     
@@ -65,6 +65,7 @@ header .logo a {
 display: flex;
 width: 140px;
 height: auto;
+
 }
 /* Гамбургер */
 .hamburger {
@@ -119,7 +120,11 @@ height: auto;
     gap: 15px; /* Расстояние между изображением и текстом */
 }
 
-img {
+.logo{
+    width: 500px; /* Размер изображения */
+    height: auto;
+}
+ img {
     width: 94%; /* Размер изображения */
     height: auto;
 }
@@ -183,7 +188,7 @@ img {
     height: 100%;
     background: #ffffffef;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 10;
     transition: top 0.9s ease-in-out;
     display: flex;
     justify-content: center;
@@ -209,10 +214,10 @@ img {
 
 .sidebar ul li {
     padding: 30px 20px;
-    border-bottom: 1px solid #0000009c;
+    border-bottom: 1px solid #00000071;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 50%;
 }
 
 .sidebar ul li a {
@@ -223,17 +228,17 @@ img {
 
 .dark-theme .sidebar ul li {
     padding: 30px 20px;
-    border-bottom: 1px solid #ff99009c;
+    border-bottom: 1px solid #ff990075;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    width: 50%;
 }
 
 /* Тёмная тема для sidebar */
 .dark-theme .sidebar {
     background: #000000ee;
     color: #fff; /* Цвет текста в тёмной теме */
-    z-index: 1;
+    z-index: 10;
 }
 
 .dark-theme .sidebar ul li a {
@@ -673,7 +678,7 @@ color: white;
             color: white;
             text-align: center;
             padding: 5px 0;
-            font-size: 13px;
+            font-size: 23px;
             border: none;
             cursor: pointer;
             transition: background-color 0.3s ease;
