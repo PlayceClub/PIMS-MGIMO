@@ -869,7 +869,7 @@ button:focus, a:focus {
                     opacity: 0.8;
                 }
                 50% {
-                    transform: scale(20.2);
+                    transform: scale(10.2);
                     opacity: 1;
                 }
             }
