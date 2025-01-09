@@ -133,6 +133,16 @@ img {
     }
 
 }
+@media (min-width: 800px) {
+    .nav ul li a  {
+        font-size:40px ;
+    }
+   .info img{
+        width: 30%;
+        height: auto;
+    }
+
+}
 @media (min-width: 1001px) {
 
     .info img{
