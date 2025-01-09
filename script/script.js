@@ -100,4 +100,3 @@ document.querySelectorAll('.submenu a').forEach(link => {
         }
     });
 });
-
