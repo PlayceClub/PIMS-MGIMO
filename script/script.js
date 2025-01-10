@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const preloader = document.getElementById("Preloader");
+    setTimeout(() => {
+        preloader.style.opacity = "0";
+        preloader.style.visibility = "hidden";
+    }, 3000); // Задержка в 1 секунду
+});
+
+
 const swiper = new Swiper('.swiper-container', {
     loop: true,
     pagination: {
@@ -18,14 +27,7 @@ swiper.on('slideChange', () => {
     dynamicText.textContent = newText;
 });
 
-window.addEventListener('load', () => {
-    const Preloader = document.getElementById("Preloader");
-    if (Preloader) {
-        Preloader.style.opacity = "1";
-        Preloader.style.visibility = "hidden";
-        Preloader.style.transition = "opacity 3s ease, visibility 3s ease";
-    }
-}, 1000);
+
 
 // Скрипт для открытия/закрытия бокового меню
 
