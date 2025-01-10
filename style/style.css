@@ -6,21 +6,24 @@ html {
     overflow-x: hidden;
 }
 html, body {
-    overflow: hidden;
+    
+    overflow-x: hidden;
+    overflow-y: auto; /* Вертикальный скролл включен */
     height: 100%;
+    scroll-behavior: smooth;
 }
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 100px 0px;
     background-color: #dcdad3;
-    overflow: hidden;
+    
     position: relative;
     touch-action: manipulation; /* Отключает ненужные жесты, включая обновление страницы */
 
 }
 .scrollable-content {
-    overflow-y: auto;
+    
     -webkit-overflow-scrolling: touch; /* Оптимизация для iOS */
     height: 100vh;
 }
