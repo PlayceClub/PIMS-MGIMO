@@ -1,14 +1,9 @@
-/* Общие стили для шапки */
+/* Адаптированный CSS файл */
+
+/* Общие стили */
 html {
     scroll-behavior: smooth;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100%;
-    
+    overflow-x: hidden;
 }
 
 body {
@@ -16,11 +11,155 @@ body {
     margin: 0;
     padding: 100px 0px;
     background-color: #dcdad3;
-    overflow: auto;
-    scrollbar-width: none; /* For Firefox */
-    overflow-x: hidden;
-
+    overflow: hidden;
+    position: relative;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Устраняем горизонтальное смещение */
+.container,
+.nav ul,
+.menu-container,
+.menu-item {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Основные медиазапросы для адаптации */
+
+/* iPhone SE (320px ширина) */
+@media (max-width: 320px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    .logo-img {
+        width: 80px;
+        height: auto;
+    }
+    .nav ul {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .menu-item {
+        width: 90%;
+        font-size: 14px;
+    }
+}
+
+/* Малые экраны (до 480px) */
+@media (max-width: 480px) {
+    .menu-container h1 {
+        font-size: 1.5rem;
+    }
+    .menu-item {
+        width: 100%;
+    }
+    .info img {
+        width: 50%;
+    }
+}
+
+/* Средние экраны (до 768px) */
+@media (max-width: 768px) {
+    .menu-container h1 {
+        font-size: 2rem;
+    }
+    .menu-item {
+        width: 100%;
+        font-size: 18px;
+    }
+    .info img {
+        width: 30%;
+    }
+}
+
+/* Retina дисплеи (высокое разрешение) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon {
+        background-image: url('icon@2x.png');
+        background-size: contain;
+    }
+    .logo-img {
+        width: auto;
+        height: auto;
+    }
+}
+
+/* iPhone Pro Max (430px ширина) */
+@media (max-width: 430px) {
+    .menu-item {
+        width: 85%;
+        font-size: 16px;
+    }
+    .view-cart {
+        width: 40px;
+        height: 60px;
+        font-size: 12px;
+    }
+}
+
+/* Общая адаптация для планшетов (768px и выше) */
+@media (min-width: 768px) {
+    .menu-item {
+        width: 70%;
+    }
+    .menu-container {
+        margin: 0 auto;
+        max-width: 700px;
+    }
+    header {
+        justify-content: space-between;
+    }
+}
+
+/* Большие экраны (до 1024px) */
+@media (max-width: 1024px) {
+    .menu-container {
+        padding: 20px;
+    }
+    .menu-item {
+        width: 50%;
+    }
+}
+
+/* Устройства с шириной от 1280px */
+@media (min-width: 1280px) {
+    .menu-container {
+        max-width: 1200px;
+    }
+    .menu-item {
+        width: 30%;
+    }
+}
+
+/* Обновление стилей Preloader */
+#Preloader img {
+    width: 60px;
+    height: 60px;
+    animation: zoomInOut 2s infinite ease-in-out;
+}
+
+@keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
 
 ::-webkit-scrollbar {
     display: none;
@@ -294,7 +433,7 @@ height: auto;
 .dark-theme {
     background: #000000;
     color: #ff8800;
-    transition: 0.1s linear;
+   
 }
 
 .dark-theme header  {
@@ -375,8 +514,38 @@ color: white;
     writing-mode: vertical-lr; /* Вертикальное расположение текста */
     text-decoration: none; /* Убираем подчеркивание */
 }
+.view-cartadd {
+    position: fixed;
+    bottom: 100px; /* Отступ от нижнего края */
+    right: -1px; /* Отступ от правого края */
+    width: 30px;
+    height: 90px;
+    background: #ff7300;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px 0px 0px 10px; /* Скругленные углы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -7px 7px 3px 3px rgba(0, 0, 0, 0.158);
+    z-index: 500;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    writing-mode: vertical-lr; /* Вертикальное расположение текста */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+.view-cartadd:hover {
+    background: #ff7300;
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+    z-index: 1;}
+.dark-theme .view-cartadd {
+        background: #ff7300;
+        color: white;
+        transition: transform ease-in 0.1s, box-shadow ease-in 0.95s;
+        box-shadow: 0px 0px 25px 7px rgba(255, 136, 0, 0.226);}
 
-.view-cart:hover {
+.view-carta:hover {
     background: #ff7300;
     transform: scale(1.05); /* Легкое увеличение при наведении */
     z-index: 1;}
@@ -435,6 +604,7 @@ color: white;
 .dark-theme .text{
     color: #faa11cfb;
     
+    
 }
 /* Дополнительно можем переопределить стили заголовков внутри контейнера */
 .menu-container1 h1 {
@@ -490,6 +660,22 @@ color: white;
     .menu-container{ margin-top: 20px;}
     body{
         padding: 100px 0px;
+    }
+
+}
+@media (min-width: 1000px) {
+    .view-cart{
+        width: 60px;
+        height: 150px;
+        font-size: 30px;
+    }
+    .view-cartadd{
+        
+        position: fixed;
+        width: 60px;
+        height: 150px;
+        font-size: 30px;
+        bottom: 200px;
     }
 
 }
@@ -654,8 +840,12 @@ color: white;
         .text-content h2 {
             margin: 0 0 10px;
             font-size: 18px;
+            
         }
-        
+        .dark-theme .text-content h2 {
+          
+            transition: linear 1s;
+        }
         .text-content .description {
             font-size: 14px;
             color: #666;
@@ -668,6 +858,23 @@ color: white;
             color: #000;
         }
         
+        .add-to-cart {
+            display: none;
+            position: absolute;
+            bottom: -1px;
+            left: -1px;
+            width: 100%;
+            background-color: #f26d21;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 23px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 0px 20px 0px 20px;
+            width: 70%;
+        }
         .add-to-cart {
             display: none;
             position: absolute;
@@ -714,7 +921,7 @@ color: white;
 .dark-theme .menu-item{
         border: 1px solid #ffc7601c;
     background: #131313;
-    transition: 0.1s linear;}
+    }
 
 
 
@@ -758,7 +965,8 @@ button:focus, a:focus {
     .dark-theme .category h1{
         color: #ff8800;
         border-bottom: 2px solid #ff8800ce;
-        transition: 0.5s linear;
+        transition: linear 1s;
+        
     }
 
       
@@ -861,20 +1069,19 @@ button:focus, a:focus {
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.856);
+        background: rgb(0, 0, 0);
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 10000;
         opacity: 2; /* Начальная непрозрачность */
-        transition: opacity 6s ease; /* Плавное исчезновение */
-        
+        transition: opacity 6s ease; /* Плавное исчезновение */   
     }
     
     
             #Preloader img {
-                width: 10%;
-                height: auto;
+                width: 40px;
+                height: 40px;
                 animation: zoomInOut 6s infinite ease-in-out;
             }
     
