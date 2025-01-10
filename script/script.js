@@ -100,3 +100,11 @@ document.querySelectorAll('.submenu a').forEach(link => {
         }
     });
 });
+
+    document.getElementById("chat-button").addEventListener("click", function(event) {
+        event.preventDefault(); // Отменяет переход по ссылке
+        // Здесь можно выполнить дополнительные действия, например, логирование
+        console.log("Переход в Telegram-чат");
+        // Затем перенаправляем пользователя в чат
+        window.open("https://t.me/BIMPull", "_blank");
+    });
