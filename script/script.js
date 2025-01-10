@@ -110,3 +110,9 @@ document.querySelectorAll('.submenu a').forEach(link => {
         // Затем перенаправляем пользователя в чат
         window.open("https://t.me/BIMPull", "_blank");
     });
+    
+    document.addEventListener('touchmove', (e) => {
+        if (window.scrollY === 0 && e.touches[0].clientY > 0) {
+            e.preventDefault(); // Блокирует "свайп вниз"
+        }
+    }, { passive: false });
