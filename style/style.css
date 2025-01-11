@@ -868,7 +868,7 @@ color: white;
             border-radius: 5px;
         }
         .menu-itemNAV {
-            scroll-margin-top: 80px; /* Отступ при прокрутке */
+            scroll-margin-top: 60px; /* Отступ при прокрутке */
         }
 
 
