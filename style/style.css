@@ -830,7 +830,7 @@ color: white;
 
 @media (max-width: 1280px) {
     .menu-item {
-        width: 100%; /* Еще меньше для маленьких экранов */
+        width: 98%; /* Еще меньше для маленьких экранов */
         font-size: 20px;
     }
 
@@ -863,7 +863,7 @@ color: white;
         }
         
         .menu-item-content img {
-            width: 60%; /* Ширина изображения */
+            width: 50%; /* Ширина изображения */
             height: auto;
             border-radius: 5px;
         }
@@ -928,7 +928,7 @@ color: white;
             color: white;
             text-align: center;
             padding: 5px 0;
-            font-size: 23px;
+            font-size: 18px;
             border: none;
             cursor: pointer;
             transition: background-color 0.3s ease;
