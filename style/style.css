@@ -19,8 +19,7 @@ body {
     background-color: #dcdad3;
     
     position: relative;
-    touch-action: manipulation; /* Отключает ненужные жесты, включая обновление страницы */
-
+    touch-action: pan-y; /* Разрешаем вертикальную прокрутку */
 }
 .scrollable-content {
     
@@ -1106,4 +1105,3 @@ button:focus, a:focus {
         background: #000000e3;
         
       }
-
