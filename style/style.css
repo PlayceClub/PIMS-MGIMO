@@ -863,7 +863,7 @@ color: white;
         }
         
         .menu-item-content img {
-            width: 70%; /* Ширина изображения */
+            width: 60%; /* Ширина изображения */
             height: auto;
             border-radius: 5px;
         }
