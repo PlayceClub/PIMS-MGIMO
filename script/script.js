@@ -98,11 +98,23 @@ document.querySelectorAll('.submenu a').forEach(link => {
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth'
+                
             });
         }
     });
 });
-
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Отключаем стандартное поведение
+        const target = document.querySelector(this.getAttribute('href')); // Находим элемент по якорю
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth', // Плавная прокрутка
+                block: 'start'
+            });
+        }
+    });
+});
     document.getElementById("chat-button").addEventListener("click", function(event) {
         event.preventDefault(); // Отменяет переход по ссылке
         // Здесь можно выполнить дополнительные действия, например, логирование
