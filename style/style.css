@@ -15,7 +15,7 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 100px 0px;
+    margin-top: 90px;
     background-color: #dcdad3;
     
     position: relative;
@@ -244,7 +244,7 @@ height: auto;
 .hamburger {
     cursor: pointer;
     display: none; /* Показываем гамбургер на всех экранах */
-    font-size: 45px;
+    font-size: xx-large;
     color: #ff7700;
     margin-right:10px; /* Отступ от логотипа */
 }
@@ -310,6 +310,12 @@ img {
     width: 100px; /* Размер изображения */
     height: auto;
 }}
+@media (max-width: 340px) {
+
+    .logo img {
+        width: 80px; /* Размер изображения */
+        height: auto;
+    }}
 @media (max-width: 800px) {
     .nav ul li a  {
         font-size:40px ;
@@ -500,13 +506,7 @@ color: white;
         width: 100px;
         height: auto;
         }
-        .hamburger {
-            cursor: pointer;
-            display: none; /* Показываем гамбургер на всех экранах */
-            font-size: 25px;
-            color: #ff8800;
-            margin-right:10px; /* Отступ от логотипа */
-        }
+
     .hamburger {
         display: block; /* Показываем гамбургер на мобильных устройствах */
     }
@@ -669,7 +669,7 @@ color: white;
 .menu-container1 .text {
     font-size: 40px;
     line-height: 1.5;
-    margin-top: 10px;
+    margin-top: -100px;
     padding: 10px;
     border-bottom: 1px solid #573908fb; /* Вместо чёрного можно использовать более глубокий оттенок */
    /* Можно добавить лёгкий полупрозрачный фон, если хотите ещё сильнее выделить: */
@@ -702,7 +702,7 @@ color: white;
 @media (max-width: 650px) {
     .menu-container{ margin-top: 20px;}
     body{
-        padding: 100px 0px;
+        padding: 90px 0px;
     }
 
 }
@@ -890,6 +890,11 @@ color: white;
             transition: linear 1s;
         }
         .text-content .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .dark-theme .text-content .description {
             font-size: 14px;
             color: #666;
             margin-bottom: 10px;
