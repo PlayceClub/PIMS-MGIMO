@@ -15,7 +15,7 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    margin-top: 90px;
+    margin-top: 83px;
     background-color: #dcdad3;
     
     position: relative;
@@ -36,17 +36,94 @@ body {
     user-select: none; /* Запрещает выделение текста */
 }
 
-/* Устраняем горизонтальное смещение */
-.container,
-.nav ul,
-.menu-container,
-.menu-item {
-    max-width: 100%;
-    overflow-x: hidden;
-}
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #8B0000;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    padding: 23px 1px 1px 1px;
+  }
 
-/* Основные медиазапросы для адаптации */
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    background: #ffffff;
+    
+    border-radius: 12px;
+    overflow: hidden;
+  }
 
+  .categories {
+    flex: 1;
+   
+    border-left: 2px solid #eee;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .categories .category {
+    padding: 15px;
+    margin: 5px 0;
+    background: #ffe4e1;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+  }
+
+  .categories .category:hover {
+    background: #ff7f7f;
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  .image-section {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #890d0d;
+    text-align: center;
+    margin: 10px 0;
+  }
+  .dark-theme .name{
+    color: #ff8800;
+  }
+
+
+
+  .add-to-cart {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background: #ff7f7f;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none; /* Hidden initially */
+  }
+
+  .add-to-cart:hover {
+    background: #ff5252;
+  }
 /* iPhone SE (320px ширина) */
 @media (max-width: 320px) {
     header {
@@ -321,17 +398,17 @@ img {
         font-size:40px ;
     }
    .info img{
-        width: 30%;
+        width: 50px;
         height: auto;
     }
 
 }
 @media (min-width: 800px) {
     .nav ul li a  {
-        font-size:40px ;
+        font-size:16px ;
     }
    .info img{
-        width: 30%;
+        width: 50px;
         height: auto;
     }
 
@@ -614,36 +691,7 @@ color: white;
     box-sizing: border-box;
     overflow: hidden; /* Скрыть лишнее содержимое, если что-то вылезает */
 }
-.menu-container1 {
-    /* Мягкий градиент с отсылкой к сакуре */
-    background: linear-gradient(180deg, #fa674dfb,#ebafaf, #eae8e0, #eae8e0);
 
-    /* Тёмно-розовая/красная рамка, напоминающая традиционные японские цвета */
-   width: 100%;
-    border-radius: 20px;
-
-    /* Отступы и выравнивание */
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 100%; /* Ширину можно настроить под ваш макет */
-
-    /* Тёмный цвет текста для контраста */
-    color: #2e141a;
-
-    /* Японский шрифт (при желании)
-       Чтобы он отображался, необходимо подключить соответствующий шрифт,
-       например, через Google Fonts: 
-         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
-    */
-    font-family: 'Noto Serif JP', serif, Cambria, Cochin, Georgia, Times, 'Times New Roman';
-
-    /* Тень для выделения контейнера */
-    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.363);
-}
-.dark-theme .menu-container1{
-    color: #301f18;
-    background: linear-gradient(180deg, #fda31dfb,#c07c16fb,#573908fb, #1a1102fb, #000000);
-}
 .dark-theme .text{
     color: #faa11cfb;
     
@@ -666,16 +714,7 @@ color: white;
 }
 
 /* Если нужно изменить стили для текста под слайды */
-.menu-container1 .text {
-    font-size: 40px;
-    line-height: 1.5;
-    margin-top: -100px;
-    padding: 10px;
-    border-bottom: 1px solid #573908fb; /* Вместо чёрного можно использовать более глубокий оттенок */
-   /* Можно добавить лёгкий полупрозрачный фон, если хотите ещё сильнее выделить: */
-    /* background-color: rgba(255, 255, 255, 0.3); */
 
-}
 
 .menu-content {
     display: flex;
@@ -699,13 +738,7 @@ color: white;
     font-size: 16px;
 }
 
-@media (max-width: 650px) {
-    .menu-container{ margin-top: 20px;}
-    body{
-        padding: 90px 0px;
-    }
 
-}
 @media (min-width: 1000px) {
     .view-cart{
         width: 60px;
@@ -830,7 +863,7 @@ color: white;
 
 @media (max-width: 1280px) {
     .menu-item {
-        width: 98%; /* Еще меньше для маленьких экранов */
+        width: 90%; /* Еще меньше для маленьких экранов */
         font-size: 20px;
     }
 
@@ -868,7 +901,7 @@ color: white;
             border-radius: 5px;
         }
         .menu-itemNAV {
-            scroll-margin-top: 60px; /* Отступ при прокрутке */
+            scroll-margin-top: 120px; /* Отступ при прокрутке */
         }
 
 
@@ -896,7 +929,7 @@ color: white;
         }
         .dark-theme .text-content .description {
             font-size: 14px;
-            color: #666;
+            color: #b1b1b1;
             margin-bottom: 10px;
         }
         
@@ -986,10 +1019,11 @@ button:focus, a:focus {
 }
     .Category h1{
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        color: rgb(0, 0, 0);
-        border-bottom: 2px solid #ffffff;
-        margin: 0px auto;
+        color: #923224;
+        border-bottom: 2px solid #924f45;
+        margin: 20px auto;
         font-size: 40px;
+        font-weight: 900;
         
     }
 .Category img{
@@ -1110,3 +1144,218 @@ button:focus, a:focus {
         background: #000000e3;
         
       }
+
+
+
+
+
+
+
+
+
+  
+      .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        max-width: 100%;
+        height: 70%;
+        background: linear-gradient(180deg, #dbdad3,#ff000057,#ff000057, #dbdad3);
+
+    
+        
+        border-radius: 0px;
+        overflow: hidden;
+      }
+  
+      .categories {
+        flex: 1;
+       
+        border-left: 2px solid #924f45;
+        overflow-y: auto;
+        padding: 10px;
+       
+      }
+  
+      .categories .category {
+        padding: 15px;
+        margin: 30px 0;
+        background: #ffffff63;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #832a2a;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        text-align: center;
+        
+      }
+  
+      .categories .category:hover {
+        background: #7e3429;
+        color: #fff;
+        transform: scale(1.05);
+      }
+  
+      .image-section {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+  
+      .image-section img {
+        max-width: 500px;
+        max-height:auto;
+        border-radius: 12px;
+        
+        margin-bottom: 20px;
+      }
+  
+      .description {
+        margin: 10px 0;
+        font-size: 18px;
+        color: #5f2525d5;
+        text-align: center;
+      }
+      .dark-theme .description{
+        color: rgba(216, 130, 17, 0.719);
+        
+        
+      }
+  
+      .add-to-cartS {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background: #af4040;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: none; /* Hidden initially */
+        
+      }
+    
+  
+      .add-to-cart:hover {
+        background: #ff5252;
+      }
+      
+      .dark-theme .title{
+        color: #ed9025;
+      }
+      .dark-theme .container{
+        background: linear-gradient(180deg, #ff880000,#ff990017,#ff99002c,#ff99000a, #ff990000);
+
+      }
+      .dark-theme .categories .category{
+        background: #00000000;
+        color: #ffa600;
+        
+
+      }
+      .dark-theme  .category{
+        background: #00000000;
+        color: #ffffff;
+        
+
+      }
+      .dark-theme .categories{
+        border-left: 1px solid #de9635;
+        height: 100%;
+      }
+      .dark-theme .add-to-cartS{
+        background: #ed9025;
+        color:rgb(255, 255, 255);
+      }
+
+
+
+
+
+
+      .swiper {
+        width: 100vw;
+        height: 90vh;
+    }
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
+    }
+    .slide-image {
+        width: 400px;
+        max-width: 500px;
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        
+    }
+
+    .slide-title {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 2rem;
+        margin: 10px 0;
+        color: #aa4141;
+        font-weight: 100;
+    }
+    .slide-description {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.3rem;
+        margin: 0px 0;
+        color: #572828b9;
+        width: 100%;
+        text-align: center;
+    }
+   .dark-theme .slide-title {
+        font-size: 2rem;
+        margin: 10px 0;
+        color: #ed9025;
+    }
+    .dark-theme .slide-description {
+        font-size: 1.2rem;
+        margin: 0px 0;
+        color: #928b7cb9;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dark-theme .add-to-cartD {
+        background-color: #ff8800;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+        width: 40%;
+    }
+    .dark-theme .add-to-cartD:hover {
+        background-color: #ff5100;
+    }
+
+
+
+    .add-to-cartD {
+        background-color: #9d4943;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+        width: 40%;
+    }
+    .add-to-cartD:hover {
+        background-color: #4d2623;
+    }
