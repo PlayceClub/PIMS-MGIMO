@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const swiper = new Swiper('.swiper-container', {
+
+
+const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
     loop: true,
     pagination: {
         el: '.swiper-pagination',
@@ -17,16 +20,8 @@ const swiper = new Swiper('.swiper-container', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+    simulateTouch: true,
 });
-
-const dynamicText = document.getElementById('dynamic-text');
-
-swiper.on('slideChange', () => {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    const newText = activeSlide.getAttribute('data-text');
-    dynamicText.textContent = newText;
-});
-
 
 
 // Скрипт для открытия/закрытия бокового меню
@@ -91,7 +86,7 @@ document.querySelectorAll('.submenu a').forEach(link => {
         const targetElement = document.getElementById(targetId);
 
         if (targetElement) {
-            const offset = 80; // Отступ сверху
+            
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -128,3 +123,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             e.preventDefault(); // Блокирует "свайп вниз"
         }
     }, { passive: false });
+
+
+
+
+
