@@ -15,7 +15,7 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    margin-top: 83px;
+    margin-top: 130px;
     background-color: #dcdad3;
     
     position: relative;
@@ -1213,6 +1213,37 @@ button:focus, a:focus {
         
         margin-bottom: 20px;
       }
+
+      @media (max-height: 1055px) {
+        .swiper-slide img{
+            width: 300px;
+            
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            
+        }
+    }
+    @media (max-height: 843px) {
+        .swiper-slide img{
+            width: 200px;
+            
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            
+        }
+    }
+    @media (max-height: 661px) {
+        .swiper-slide img{
+            width: 140px;
+            
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            
+        }
+    }
   
       .description {
         margin: 10px 0;
@@ -1279,7 +1310,7 @@ button:focus, a:focus {
 
       .swiper {
         width: 100vw;
-        height: 90vh;
+        height: auto;
     }
     .swiper-slide {
         display: flex;
@@ -1291,7 +1322,6 @@ button:focus, a:focus {
     }
     .slide-image {
         width: 400px;
-        max-width: 500px;
         height: auto;
         margin-bottom: 20px;
         border-radius: 10px;
