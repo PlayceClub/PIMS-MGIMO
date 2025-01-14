@@ -1160,8 +1160,8 @@ button:focus, a:focus {
         flex-direction: row;
         width: 100%;
         max-width: 100%;
-        height: 70%;
-        background: linear-gradient(180deg, #dbdad3,#ff000057,#ff000057, #dbdad3);
+        height: 100vh;
+        background: linear-gradient(180deg, #dbdad3,#ff00001f,#ff000028, #dbdad3);
 
     
         
@@ -1174,7 +1174,8 @@ button:focus, a:focus {
        
         border-left: 2px solid #924f45;
         overflow-y: auto;
-        padding: 40px;
+        padding: 10px;
+        
        
       }
   
@@ -1189,7 +1190,8 @@ button:focus, a:focus {
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.3s ease;
         text-align: center;
-        
+        text-wrap: wrap;
+        width: 100px;
       }
   
       .categories .category:hover {
@@ -1199,20 +1201,24 @@ button:focus, a:focus {
       }
   
       .image-section {
+        display: block;
+        position: relative;
+        width: 200px;
+        height: 100vh;
         flex: 2;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 100px;
+        
       }
   
       .image-section img {
-        max-width: 500px;
+        width: 240px;
         max-height:auto;
         border-radius: 12px;
         
-        margin-bottom: 20px;
+        margin-bottom: -20px;
       }
 
       @media (max-height: 1055px) {
