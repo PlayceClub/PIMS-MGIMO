@@ -1368,7 +1368,7 @@ button:focus, a:focus {
     }
     .slide-description {
         font-family: 'Times New Roman', Times, serif;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         margin: 0px 0;
         color: #572828b9;
         width: 100%;
@@ -1443,7 +1443,7 @@ button:focus, a:focus {
   /* Контент модального окна */
   .cart-modal-content {
     background: linear-gradient(105deg, #ffffff, #fff2e6); /* Градиентный фон */
-    padding: 40px;
+    padding: 10px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Тень */
     width: 90%;
@@ -1495,6 +1495,7 @@ button:focus, a:focus {
     max-height: 200px;
     overflow-y: auto; /* Прокрутка для длинного списка */
     margin-bottom: 20px;
+    
   }
   
   #cartItems li {
