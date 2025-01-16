@@ -92,6 +92,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    margin-top: -20%;
   }
 
 
@@ -733,6 +734,8 @@ color: white;
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    border: solid 2px white;
+    border-radius: 55px;
 }
 
 .text {
@@ -1022,7 +1025,7 @@ button:focus, a:focus {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         color: #923224;
         border-bottom: 2px solid #924f45;
-        margin: 20px auto;
+        margin: 0px auto;
         font-size: 40px;
         font-weight: 900;
         
@@ -1161,7 +1164,7 @@ button:focus, a:focus {
         width: 100%;
         max-width: 100%;
         height: 100vh;
-        background: linear-gradient(180deg, #dbdad3,#ff00001f,#ff000028, #dbdad3);
+        background: linear-gradient(180deg, #dbdad3,#ff00001f,#ff000018, #dbdad3);
 
     
         
@@ -1200,25 +1203,14 @@ button:focus, a:focus {
         transform: scale(1.05);
       }
   
-      .image-section {
-        display: block;
-        position: relative;
-        width: 200px;
-        height: 100vh;
-        flex: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        
-      }
+
   
       .image-section img {
         width: 240px;
-        max-height:auto;
+        
         border-radius: 12px;
         
-        margin-bottom: -20px;
+        margin-bottom: 0px;
       }
 
       @media (max-height: 1055px) {
@@ -1231,9 +1223,9 @@ button:focus, a:focus {
             
         }
     }
-    @media (max-height: 843px) {
+    @media (max-height: 873px) {
         .swiper-slide img{
-            width: 200px;
+            width: 220px;
             
             height: auto;
             margin-bottom: 20px;
@@ -1241,7 +1233,7 @@ button:focus, a:focus {
             
         }
     }
-    @media (max-height: 661px) {
+    @media (max-height: 737px) {
         .swiper-slide img{
             width: 140px;
             
@@ -1257,13 +1249,25 @@ button:focus, a:focus {
         font-size: 18px;
         color: #5f2525d5;
         text-align: center;
+        
       }
       .dark-theme .description{
         color: rgba(216, 130, 17, 0.719);
         
         
       }
-  
+      .product-price{
+        margin: 10px 0;
+        font-size: 15px;
+        color: #5f2525d5;
+        text-align: center;
+        font-weight: 100;
+      }
+
+      .dark-theme      .product-price{
+        color: rgba(216, 130, 17, 0.719);
+
+      }
       .add-to-cartS {
         padding: 10px 20px;
         font-size: 16px;
@@ -1276,8 +1280,28 @@ button:focus, a:focus {
         display: none; /* Hidden initially */
         
       }
-    
-  
+      @media (max-width: 420px) {
+
+     
+      .image-section img{
+        width: 210px;
+      }
+    }
+    @media (max-width: 368px) {
+
+     
+        .image-section img{
+          width: 180px;
+        }
+      }
+      @media (max-width: 348px) {
+
+     
+        .image-section img{
+          width: 130px;
+        }
+      }
+
       .add-to-cart:hover {
         background: #ff5252;
       }
@@ -1349,6 +1373,7 @@ button:focus, a:focus {
         color: #572828b9;
         width: 100%;
         text-align: center;
+        font-weight: 100;
     }
    .dark-theme .slide-title {
         font-size: 2rem;
@@ -1396,3 +1421,176 @@ button:focus, a:focus {
     .add-to-cartD:hover {
         background-color: #4d2623;
     }
+    
+
+
+
+   /* Основной стиль для модального окна */
+.cart-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Затемнение фона */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out; /* Анимация появления */
+  }
+  
+  /* Контент модального окна */
+  .cart-modal-content {
+    background: linear-gradient(105deg, #ffffff, #fff2e6); /* Градиентный фон */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Тень */
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    animation: slideUp 0.4s ease-out; /* Анимация выезда сверху */
+    position: relative;
+    
+  }
+  .dark-theme .cart-modal-content{
+    background: linear-gradient(105deg, #000000, #291400); /* Градиентный фон */
+    color: rgb(255, 255, 255);
+  }
+  
+  /* Кнопка закрытия */
+  .close-cart-modal {
+    position: relative;
+    top: 0;
+    right: auto;
+    font-size: 34px;
+    color: #a73636;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-left: 90%;
+  }
+  
+  .close-cart-modal:hover {
+    color: #924f45; /* Изменение цвета при наведении */
+  }
+  
+  /* Заголовок модального окна */
+  .cart-modal-content h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+   
+    padding-bottom: 10px;
+  }
+  .dark-theme .cart-modal-content h2{
+    color: white;
+    
+  }
+  
+  /* Список товаров */
+  #cartItems {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto; /* Прокрутка для длинного списка */
+    margin-bottom: 20px;
+  }
+  
+  #cartItems li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff00;
+    
+    padding: 10px;
+    margin-bottom: 10px;
+    
+    border-bottom: 1px solid #ff73004f;
+  }
+  
+  #cartItems img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  
+  /* Общая сумма */
+  .cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  .dark-theme .cart-total{
+    color: rgb(255, 255, 255);
+  }
+  
+  /* Кнопка оплаты */
+  #checkoutButton {
+    background-color: #ec7d22;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+  }
+  
+  #checkoutButton:hover {
+    background-color: #924f45; /* Более тёмный цвет при наведении */
+  }
+  
+  /* Анимации */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  /* Общий стиль кнопок "+" и "-" */
+.increment,
+.decrement {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color: #ff9100;
+  font-size: 15px;
+  font-weight: bold;
+  width: 60px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.increment:hover,
+.decrement:hover {
+  background-color: #ff4d4d;
+  color: #fff;
+  border-color: #ff4d4d;
+}
+
+.increment:active,
+.decrement:active {
+  transform: scale(0.9);
+}
